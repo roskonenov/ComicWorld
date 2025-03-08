@@ -1,0 +1,106 @@
+/* Page background */
+.background-video {
+    position: fixed;
+    width: 100vw;
+    height: 92vh;
+    object-fit: fill;
+    top: 8vh;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1000;
+}
+
+header {
+    background: #62daff;
+    width: 100vw;
+    height: 8vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    border-bottom: 2px solid #c362ff;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    box-shadow: rgba(50, 50, 93, -0.25) 0px 50px 100px -20px, rgba(0, 0, 0, -0.3) 0px 30px 60px 30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+.logo-container {
+    flex: 0 1 45vw;
+    align-items: center;
+    height: 100%;
+    margin-top: 1.5vh;
+    margin-left: 3vw;
+}
+ nav {
+    flex: 1 0;
+ }
+
+.logo {
+    color: #ff9462;
+    paint-order: stroke fill;
+    text-transform: uppercase;
+    font-size: calc(1rem + min(95px, 15vw));
+    font-weight: 900;
+    letter-spacing: -.175ch;
+    line-height: 0.9;
+    -webkit-text-stroke: 5px #c362ff;
+    text-shadow: 8px 8px #c362ff;
+    transition: all 0.5s;
+}
+
+.logo:hover {
+    text-shadow: 0 0 10px #ffe262, 0 0 20px #ffe262, 0 0 30px #ffe262;
+}
+
+nav ul {
+    margin-right: 4vw;
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    justify-content: space-between;
+}
+
+nav ul li {
+    transition: all 0.2s ease-out;
+
+}
+
+nav ul li:hover {
+    transform: scale(1.15);
+}
+
+nav ul li a {
+    font-size: 25px;
+    font-weight: 700;
+    color: #ff9462;
+    text-shadow: 2px 1px #c362ff;
+    letter-spacing: 1.5px;
+    transition: text-shadow 0.3s,
+        color 0.05s ease-out
+}
+
+nav ul li a:hover {
+    text-shadow: 0 0 10px #ffe262, 0 0 20px #ffe262, 0 0 30px #ffe262;
+}
+
+nav ul li a:active {
+    color: #c362ff;
+}
+
+@media screen and (max-width: 1080px) {
+    .logo {
+        font-size: calc(1rem + min(35px, 15vw));
+        text-shadow: 5px 5px #c362ff;
+    }
+
+    nav ul {
+        gap: 20px;
+        line-height: .8vh;
+    }
+
+    nav ul li a {
+        font-size: 18px;
+    }
+}
