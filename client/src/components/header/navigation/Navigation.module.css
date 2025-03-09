@@ -1,0 +1,19 @@
+.nav {
+    flex: 1 0;
+}
+
+.list {
+    margin-right: 4vw;
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    justify-content: space-between;
+}
+
+@media screen and (max-width: 1080px) {
+
+    .list {
+        gap: 20px;
+        line-height: .8vh;
+    }
+}

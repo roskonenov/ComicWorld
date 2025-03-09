@@ -1,0 +1,33 @@
+.list-item {
+    transition: all 0.2s ease-out;
+
+}
+
+.list-item:hover {
+    transform: scale(1.15);
+}
+
+.link {
+    font-size: 25px;
+    font-weight: 700;
+    color: #ff9462;
+    text-shadow: 2px 1px #c362ff;
+    letter-spacing: 1.5px;
+    transition: text-shadow 0.3s,
+        color 0.05s ease-out
+}
+
+.link:hover {
+    text-shadow: 0 0 10px #ffe262, 0 0 20px #ffe262, 0 0 30px #ffe262;
+}
+
+.link:active {
+    color: #c362ff;
+}
+
+@media screen and (max-width: 1080px) {
+
+    .link {
+        font-size: 18px;
+    }
+}

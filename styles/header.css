@@ -3,7 +3,7 @@
     position: fixed;
     width: 100vw;
     height: 92vh;
-    object-fit: fill;
+    object-fit: cover;
     top: 8vh;
     left: 0;
     right: 0;
@@ -33,9 +33,10 @@ header {
     margin-top: 1.5vh;
     margin-left: 3vw;
 }
- nav {
+
+nav {
     flex: 1 0;
- }
+}
 
 .logo {
     color: #ff9462;
