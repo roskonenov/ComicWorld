@@ -1,0 +1,70 @@
+.comic-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    background-color: #f5f5f5;
+  }
+  
+  .sort-button, .pagination button {
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+    margin: 5px;
+  }
+  
+  .sort-button:hover, .pagination button:hover {
+    background-color: #0056b3;
+  }
+  
+  .pagination {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .pagination button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  .comic-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  .comic-card {
+    width: 180px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    background-color: white;
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .comic-card:hover {
+    transform: scale(1.05);
+  }
+  
+  .comic-cover {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  .comic-title {
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+  }
+  

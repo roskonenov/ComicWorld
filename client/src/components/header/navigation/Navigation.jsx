@@ -4,7 +4,7 @@ import styles from './Navigation.module.css';
 export default function Navigation() {
     const navItems = [
         { name: 'Home', path: '/' },
-        { name: 'All Comics', path: '#all-comics' },
+        { name: 'All Comics', path: '/all-comics' },
         { name: 'Login', path: '#login' },
         { name: 'Register', path: '#register' },
         { name: 'Contacts', path: '#contacts' },
