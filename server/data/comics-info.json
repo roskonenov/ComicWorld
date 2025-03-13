@@ -5,6 +5,7 @@
         "slogan":"More than Human",
         "currentPrice":"3.69",
         "oldPrice":"5.40",
+        "createdAt": "2023-11-01T07:22:00.358Z",
         "_id": "02901320-de01-4ab5-a7ac-f6b2bd71f5c0"
     },
     "dc79c140-f0fe-4877-b751-3ca8a3aafc6a": {
@@ -13,6 +14,7 @@
         "slogan":"Second Cycle",
         "currentPrice":"5.2",
         "oldPrice":"",
+        "createdAt": "2024-05-01T07:22:00.358Z",
         "_id": "dc79c140-f0fe-4877-b751-3ca8a3aafc6a"
     },
     "d239fb5b-f90a-4862-9162-f9e9f6757683": {
@@ -21,6 +23,7 @@
         "slogan":"Song of Glory",
         "currentPrice":"4.60",
         "oldPrice":"",
+        "createdAt": "2024-03-01T07:22:00.358Z",
         "_id": "d239fb5b-f90a-4862-9162-f9e9f6757683"
     },
     "36f9c859-3ed5-4405-82c7-0741b2085863": {
@@ -29,6 +32,7 @@
         "slogan":"Live By The Sword",
         "currentPrice":"3.90",
         "oldPrice":"4.80",
+        "createdAt": "2025-11-16T07:22:00.358Z",
         "_id": "36f9c859-3ed5-4405-82c7-0741b2085863"
     },
     "71bfcd5b-b962-4229-8e6f-de2e427fe69d": {
@@ -37,6 +41,25 @@
         "slogan":"Prey to the Heavens",
         "currentPrice":"3.99",
         "oldPrice":"",
+        "createdAt": "2025-12-18T07:22:00.358Z",
         "_id": "71bfcd5b-b962-4229-8e6f-de2e427fe69d"
+    },
+    "71bfcd5b-b962-4229-8e6f-de2e427th69d": {
+        "coverUrl": "https://pixeldrain.com/api/file/i8Bpm2oS",
+        "title":"Half Past Danger",
+        "slogan":"Vol. 1",
+        "currentPrice":"4.70",
+        "oldPrice":"5.00",
+        "createdAt": "2024-04-01T07:22:00.358Z",
+        "_id": "71bfcd5b-b962-4229-8e6f-de2e427th69d"
+    },
+    "71bfcd5b-b962-4229-8e6f-de2s727fe69d": {
+        "coverUrl": "https://pixeldrain.com/api/file/AMWhkzpJ",
+        "title":"Promethee",
+        "slogan":"Vol. 1 - Atlantis",
+        "currentPrice":"6.50",
+        "oldPrice":"",
+        "createdAt": "2024-02-15T07:22:00.358Z",
+        "_id": "71bfcd5b-b962-4229-8e6f-de2s727fe69d"
     }
 }
