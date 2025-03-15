@@ -10,7 +10,7 @@
     color: #ff9462;
     paint-order: stroke fill;
     text-transform: uppercase;
-    font-size: calc(1rem + min(95px, 15vw));
+    font-size: calc(1em + min(95px, 15vw));
     font-weight: 900;
     letter-spacing: -.175ch;
     line-height: 0.9;
@@ -25,7 +25,7 @@
 
 @media screen and (max-width: 1080px) {
     .logo {
-        font-size: calc(1rem + min(35px, 15vw));
+        font-size: calc(1em + min(35px, 15vw));
         text-shadow: 5px 5px #c362ff;
     }
 }

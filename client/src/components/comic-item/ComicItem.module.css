@@ -1,7 +1,8 @@
 .item-container{
 	margin: auto;
 	display: flex;
-	flex: 1 1 20%;
+	flex-basis: 20%;
+	z-index: 1;
 }
 
 .main-container {
@@ -26,7 +27,7 @@
 .price-container {
 	background: #ffe677;
 	width: 120%;
-	height: 50vh;
+	height: calc(10vw * 2.3);
 	display: flex;
 	flex-direction: column;
 	align-items: center;

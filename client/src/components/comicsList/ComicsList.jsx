@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import styles from "./ComicsList.module.css";
 import useGetResources from "../../hooks/useGetResource";
+import Spinner from "../spinner/Spinner";
+import ComicItem from "../comic-item/ComicItem";
 
 const baseUrl = 'http://localhost:3030/jsonstore/comics-info';
 
@@ -12,7 +14,7 @@ export default function ComicsList() {
     const comicsPerPage = 4;
 
     const [loading, comicsData] = useGetResources(baseUrl);
-    setDisplayComics(comicsData);
+    // setDisplayComics(comicsData);
 
     const sortedComics = [...comicsData].sort((a, b) => {
         return sortOrder === "asc"
@@ -40,18 +42,17 @@ export default function ComicsList() {
         }
     };
 
+    if (loading) {
+        return <Spinner />;
+    }
+
     return (
         <div className={styles['comic-container']}>
             <button className={styles['sort-button']} onClick={handleSort}>
                 Sort {sortOrder === "asc" ? "Descending" : "Ascending"}
             </button>
             <div className={styles['comic-list']}>
-                {currentComics.map((comic) => (
-                    <div key={comic.id} className={styles['comic-card']}>
-                        <img src={comic.cover} alt={comic.title} className={styles['comic-cover']} />
-                        <h3 className={styles['comic-title']}>{comic.title}</h3>
-                    </div>
-                ))}
+                {comicsData.map((comic) => <ComicItem key={comic._id} {...comic} />)}
             </div>
             <div className={styles['pagination']}>
                 <button onClick={prevPage} disabled={currentPage === 1}>
