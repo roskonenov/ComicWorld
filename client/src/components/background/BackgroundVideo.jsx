@@ -1,6 +1,6 @@
 import style from './BackgroundVideo.module.css';
-import video from '../../assets/background-video/nav-background3.webm';
-import poster from '../../assets/background-video/background-poster.png';
+import video from '../../assets/background-video/background3.webm';
+import poster from '../../assets/background-video/background-poster3.png';
 
 export default function BackgroundVideo() {
     return (

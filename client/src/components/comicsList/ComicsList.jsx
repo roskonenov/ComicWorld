@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./ComicsList.module.css";
 import useGetResources from "../../hooks/useGetResource";
 import Spinner from "../spinner/Spinner";
 import ComicItem from "../comic-item/ComicItem";
+import Filter from "./filter/Filter";
 
 const baseUrl = 'http://localhost:3030/jsonstore/comics-info';
 
@@ -11,10 +12,9 @@ export default function ComicsList() {
     const [displayComics, setDisplayComics] = useState([]);
     const [sortOrder, setSortOrder] = useState("asc");
     const [currentPage, setCurrentPage] = useState(1);
-    const comicsPerPage = 4;
+    const comicsPerPage = 12;
 
     const [loading, comicsData] = useGetResources(baseUrl);
-    // setDisplayComics(comicsData);
 
     const sortedComics = [...comicsData].sort((a, b) => {
         return sortOrder === "asc"
@@ -24,7 +24,12 @@ export default function ComicsList() {
 
     const indexOfLastComic = currentPage * comicsPerPage;
     const indexOfFirstComic = indexOfLastComic - comicsPerPage;
-    const currentComics = sortedComics.slice(indexOfFirstComic, indexOfLastComic);
+
+    useEffect(() => {
+        setDisplayComics(sortedComics.slice(indexOfFirstComic, indexOfLastComic));
+
+    }, [comicsData, sortOrder, currentPage]);
+    
 
     const handleSort = () => {
         setSortOrder(sortOrder === "asc" ? "desc" : "asc");
@@ -48,12 +53,13 @@ export default function ComicsList() {
 
     return (
         <div className={styles['comic-container']}>
-            <button className={styles['sort-button']} onClick={handleSort}>
-                Sort {sortOrder === "asc" ? "Descending" : "Ascending"}
-            </button>
+
+            <Filter handleSort={handleSort} sortOrder={sortOrder}/>
+
             <div className={styles['comic-list']}>
-                {comicsData.map((comic) => <ComicItem key={comic._id} {...comic} />)}
+                {displayComics.map((comic) => <ComicItem key={comic._id} {...comic} />)}
             </div>
+            
             <div className={styles['pagination']}>
                 <button onClick={prevPage} disabled={currentPage === 1}>
                     Prev

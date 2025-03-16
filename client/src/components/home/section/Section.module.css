@@ -2,10 +2,10 @@
     margin: 60px;
     margin-top: 80px;
     padding: 30px;
-    padding-bottom: 7vw;
+    padding-bottom: 3vw;
     width: calc(100% - 120px);
     min-height: 19vw;
-    background: #87e3fff4;
+    background: #87e3ffa8;
     border: 2px solid #c362ff;
     border-radius: 12px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
@@ -23,7 +23,6 @@
     justify-self: center;
 
     & .section-title {
-        margin-top: 4vw;
         text-transform: uppercase;
         font-weight: 800;
         font-size: calc(1em + min(65px, 5vw));
@@ -44,5 +43,6 @@
 
 .list {
     display: flex;
-    /* flex-wrap: wrap; */
+    flex-wrap: wrap;
+    row-gap: 22vh;
 }

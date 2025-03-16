@@ -5,10 +5,11 @@ export default function Navigation() {
     const navItems = [
         { name: 'Home', path: '/' },
         { name: 'All Comics', path: '/all-comics' },
-        { name: 'Login', path: '#login' },
-        { name: 'Register', path: '#register' },
-        { name: 'Contacts', path: '#contacts' },
-        { name: 'About', path: '#about' },
+        {name: 'My Comics', path: '/my-comics'},
+        { name: 'Login', path: '/login' },
+        { name: 'Register', path: '/register' },
+        { name: 'Contacts', path: '/contacts' },
+        { name: 'About', path: '/about' },
     ];
 
     return (

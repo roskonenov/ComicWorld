@@ -1,65 +1,191 @@
 {
-    "02901320-de01-4ab5-a7ac-f6b2bd71f5c0": {
-        "coverUrl": "https://pixeldrain.com/api/file/ERCXs6oR",
-        "title":"Alien",
-        "slogan":"More than Human",
-        "currentPrice":"3.69",
-        "oldPrice":"5.40",
-        "createdAt": "2023-11-01T07:22:00.358Z",
-        "_id": "02901320-de01-4ab5-a7ac-f6b2bd71f5c0"
-    },
+    
     "dc79c140-f0fe-4877-b751-3ca8a3aafc6a": {
         "coverUrl": "https://pixeldrain.com/api/file/FnwtUVvc",
-        "title":"American Vampire",
-        "slogan":"Second Cycle",
-        "currentPrice":"5.2",
-        "oldPrice":"",
+        "title": "American Vampire",
+        "slogan": "Second Cycle",
+        "currentPrice": "5.2",
+        "oldPrice": "",
         "createdAt": "2024-05-01T07:22:00.358Z",
         "_id": "dc79c140-f0fe-4877-b751-3ca8a3aafc6a"
     },
-    "d239fb5b-f90a-4862-9162-f9e9f6757683": {
-        "coverUrl": "https://pixeldrain.com/api/file/SWxRhLA7",
-        "title":"Assassin's Creed Valhalla",
-        "slogan":"Song of Glory",
-        "currentPrice":"4.60",
-        "oldPrice":"",
-        "createdAt": "2024-03-01T07:22:00.358Z",
-        "_id": "d239fb5b-f90a-4862-9162-f9e9f6757683"
-    },
     "36f9c859-3ed5-4405-82c7-0741b2085863": {
         "coverUrl": "https://pixeldrain.com/api/file/Lhs7Q176",
-        "title":"Birthright",
-        "slogan":"Live By The Sword",
-        "currentPrice":"3.90",
-        "oldPrice":"4.80",
+        "title": "Birthright",
+        "slogan": "Live By The Sword",
+        "currentPrice": "3.90",
+        "oldPrice": "4.80",
         "createdAt": "2025-11-16T07:22:00.358Z",
         "_id": "36f9c859-3ed5-4405-82c7-0741b2085863"
     },
     "71bfcd5b-b962-4229-8e6f-de2e427fe69d": {
         "coverUrl": "https://pixeldrain.com/api/file/63XSbETk",
-        "title":"Predator",
-        "slogan":"Prey to the Heavens",
-        "currentPrice":"3.99",
-        "oldPrice":"",
+        "title": "Predator",
+        "slogan": "Prey to the Heavens",
+        "currentPrice": "3.99",
+        "oldPrice": "",
         "createdAt": "2025-12-18T07:22:00.358Z",
         "_id": "71bfcd5b-b962-4229-8e6f-de2e427fe69d"
     },
     "71bfcd5b-b962-4229-8e6f-de2e427th69d": {
         "coverUrl": "https://pixeldrain.com/api/file/i8Bpm2oS",
-        "title":"Half Past Danger",
-        "slogan":"Vol. 1",
-        "currentPrice":"4.70",
-        "oldPrice":"5.00",
+        "title": "Half Past Danger",
+        "slogan": "Vol. 1",
+        "currentPrice": "4.70",
+        "oldPrice": "5.00",
         "createdAt": "2024-04-01T07:22:00.358Z",
         "_id": "71bfcd5b-b962-4229-8e6f-de2e427th69d"
     },
+    "d239fb5b-f90a-4862-9162-f9e9f6757683": {
+        "coverUrl": "https://pixeldrain.com/api/file/SWxRhLA7",
+        "title": "Assassin's Creed Valhalla",
+        "slogan": "Song of Glory",
+        "currentPrice": "4.60",
+        "oldPrice": "",
+        "createdAt": "2024-03-01T07:22:00.358Z",
+        "_id": "d239fb5b-f90a-4862-9162-f9e9f6757683"
+    },
     "71bfcd5b-b962-4229-8e6f-de2s727fe69d": {
         "coverUrl": "https://pixeldrain.com/api/file/AMWhkzpJ",
-        "title":"Promethee",
-        "slogan":"Vol. 1 - Atlantis",
-        "currentPrice":"6.50",
-        "oldPrice":"",
+        "title": "Promethee",
+        "slogan": "Vol. 1 - Atlantis",
+        "currentPrice": "6.50",
+        "oldPrice": "",
         "createdAt": "2024-02-15T07:22:00.358Z",
         "_id": "71bfcd5b-b962-4229-8e6f-de2s727fe69d"
+    },
+    "71bfcd5b-b962-4229-8e6f-de2s687fe69d": {
+        "coverUrl": "https://pixeldrain.com/api/file/6gdk1xn4",
+        "title": "War of the World War One",
+        "slogan": "Vol. 1 - The Thing Below the Trenches",
+        "currentPrice": "5.55",
+        "oldPrice": "",
+        "createdAt": "2025-02-10T07:22:00.358Z",
+        "_id": "71bfcd5b-b962-4229-8e6f-de2s687fe69d"
+    },
+    "09bb4abb-ad24-438c-b653-3d422c519f33": {
+        "coverUrl": "https://pixeldrain.com/api/file/LQ45bJCS",
+        "title": "The Red Mother",
+        "slogan": "Vol. 3",
+        "currentPrice": "3.86",
+        "oldPrice": "4.89",
+        "createdAt": "2024-04-01T07:22:00.358Z",
+        "_id": "09bb4abb-ad24-438c-b653-3d422c519f33"
+    },
+    "09bb4abb-ad24-438c-b653-3d456h719f33": {
+        "coverUrl": "https://pixeldrain.com/api/file/zV4B3LWS",
+        "title": "Venus",
+        "slogan": "",
+        "currentPrice": "5.30",
+        "oldPrice": "",
+        "createdAt": "2025-03-02T07:22:00.358Z",
+        "_id": "09bb4abb-ad24-438c-b653-3d456h719f33"
+    },"02901320-de01-4ab5-a7ac-f6b2bd71f5c0": {
+        "coverUrl": "https://pixeldrain.com/api/file/ERCXs6oR",
+        "title": "Aliens",
+        "slogan": "More than Human",
+        "currentPrice": "3.69",
+        "oldPrice": "5.40",
+        "createdAt": "2023-11-01T07:22:00.358Z",
+        "_id": "02901320-de01-4ab5-a7ac-f6b2bd71f5c0"
+    },
+    "09bb4abb-ad24-438c-b863-3d456h719f33": {
+        "coverUrl": "https://pixeldrain.com/api/file/9jiq8z55",
+        "title": "Harbinger Deluxe Edition",
+        "slogan": "Vol. 1",
+        "currentPrice": "5.90",
+        "oldPrice": "6.30",
+        "createdAt": "2025-01-14T07:22:00.358Z",
+        "_id": "09bb4abb-ad24-438c-b863-3d456h719f33"
+    },
+    "09bb4abb-ad24-438c-b863-3d4fuyfd5f33": {
+        "coverUrl": "https://pixeldrain.com/api/file/9qMSWDtg",
+        "title": "Clone",
+        "slogan": "Vol. 1 - First Generation",
+        "currentPrice": "3.80",
+        "oldPrice": "4.30",
+        "createdAt": "2024-12-18T07:22:00.358Z",
+        "_id": "09bb4abb-ad24-438c-b863-3d4fuyfd5f33"
+    },
+    "09bb4abb-ad24-438c-b863-3d4fuyffd9d3": {
+        "coverUrl": "https://pixeldrain.com/api/file/mzA34QQc",
+        "title": "Dragon Age",
+        "slogan": "Wraiths of Tevinter",
+        "currentPrice": "5.30",
+        "oldPrice": "",
+        "createdAt": "2024-08-15T07:22:00.358Z",
+        "_id": "09bb4abb-ad24-438c-b863-3d4fuyffd9d3"
+    },
+    "09bb4abb-ad24-438c-b863-3d4fgpekt9d3": {
+        "coverUrl": "https://pixeldrain.com/api/file/nX2RRwua",
+        "title": "Beasts of Burden",
+        "slogan": "Occupied Territory",
+        "currentPrice": "5.30",
+        "oldPrice": "6.00",
+        "createdAt": "2025-04-15T07:22:00.358Z",
+        "_id": "09bb4abb-ad24-438c-b863-3d4fgpekt9d3"
+    },
+    "09bb4abb-ad24-438c-b863-hj67djpekt9d3": {
+        "coverUrl": "https://pixeldrain.com/api/file/5YTYxpMB",
+        "title": "Bear's Tooth",
+        "slogan": "Vol. 4 - Amerika Bomber",
+        "currentPrice": "4.60",
+        "oldPrice": "",
+        "createdAt": "2024-08-10T07:22:00.358Z",
+        "_id": "09bb4abb-ad24-438c-b863-hj67djpekt9d3"
+    },
+    "09bb4abb-ad24-438c-b863-hj6pjg5f6t9d3": {
+        "coverUrl": "https://pixeldrain.com/api/file/RKeDvf8S",
+        "title": "Armorclads",
+        "slogan": "",
+        "currentPrice": "4.20",
+        "oldPrice": "",
+        "createdAt": "2024-10-24T07:22:00.358Z",
+        "_id": "09bb4abb-ad24-438c-b863-hj6pjg5f6t9d3"
+    },
+    "09bb4abb-ad24-438c-b863-hjkiebt6f6t9d3": {
+        "coverUrl": "https://pixeldrain.com/api/file/Bf1fwS2Y",
+        "title": "Alix Senator - Vol. 1",
+        "slogan": "The Blood Eagles",
+        "currentPrice": "5.25",
+        "oldPrice": "5.80",
+        "createdAt": "2024-10-24T07:22:00.358Z",
+        "_id": "09bb4abb-ad24-438c-b863-hjkiebt6f6t9d3"
+    },
+    "09bb4abb-ad24-438c-b863-hjkiuj7thggjk4": {
+        "coverUrl": "https://pixeldrain.com/api/file/igjabTJL",
+        "title": "Alice Matheson - Vol. 2",
+        "slogan": "The Killer in me",
+        "currentPrice": "5.60",
+        "oldPrice": "",
+        "createdAt": "2025-01-24T07:22:00.358Z",
+        "_id": "09bb4abb-ad24-438c-b863-hjkiuj7thggjk4"
+    },
+    "09bb4abb-ad24-438c-b863-hjkgjhg55hggjk4": {
+        "coverUrl": "https://pixeldrain.com/api/file/QPKQBe7U",
+        "title": "A Reckless Book",
+        "slogan": "Destroy All Monsters",
+        "currentPrice": "6.30",
+        "oldPrice": "",
+        "createdAt": "2024-05-24T07:22:00.358Z",
+        "_id": "09bb4abb-ad24-438c-b863-hjkgjhg55hggjk4"
+    },
+    "09bb4abb-ad24-438c-b863-hoknbtcfegjk43": {
+        "coverUrl": "https://pixeldrain.com/api/file/Ga3kgU4T",
+        "title": "A Game of Thrones The Graphic Novel",
+        "slogan": "Volume 1",
+        "currentPrice": "5.65",
+        "oldPrice": "6.00",
+        "createdAt": "2024-10-04T07:22:00.358Z",
+        "_id": "09bb4abb-ad24-438c-b863-hoknbtcfegjk43"
+    },
+    "09bb4abb-ad24-438c-b863-hoknbcfgedfghr": {
+        "coverUrl": "https://pixeldrain.com/api/file/23iio5dj",
+        "title": "Дъга",
+        "slogan": "Разкази в Картинки - брой 40",
+        "currentPrice": "10.00",
+        "oldPrice": "12.56",
+        "createdAt": "2024-10-04T07:22:00.358Z",
+        "_id": "09bb4abb-ad24-438c-b863-hoknbcfgedfghr"
     }
 }
