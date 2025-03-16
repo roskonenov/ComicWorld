@@ -1,24 +1,83 @@
-
-.filtet-container {
+.filter-container {
+  width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: end;
   align-items: center;
-  margin-bottom: 20px;
+  padding: 0 60px;
+  gap: 15px;
+}
+
+.filter-form {
+  position: relative;
+}
+
+.title-search {
+  background: #62daff;
+  font-size: 18px;
+  padding: 10px 10px 10px 5px;
+  display: block;
+  width: 300px;
+  border: 2px solid #c362ff;
+  border-radius: 12px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px;
+
+  &:focus {
+    outline: none;
+    box-shadow: none;
+  }
+}
+
+.title-search~label {
+  color: #fd8750;
+  text-shadow: #421906 1.3px 1.2px 1px;
+  font-size: 20px;
+  font-weight: normal;
+  position: absolute;
+  pointer-events: none;
+  left: 5px;
+  top: 10px;
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
+}
+
+/* active state */
+.title-search:focus~label,
+.title-search:valid~label {
+  top: -20px;
+  font-size: 14px;
+  color: black;
+  text-shadow: #fff 1.2px 1.2px 1px;
+  background: #ffe262e5;
+  border-radius: 2px;
+  line-height: 1em;
 }
 
 .sort-button {
-  flex: 0 1;
-  padding: 10px 15px;
-  /* font-size: 16px; */
+  flex: 1 0;
+  padding: 12px 8px;
+  max-width: 8vw;
   cursor: pointer;
-  border: none;
-  background-color: #007bff;
-  color: white;
-  border-radius: 5px;
-  transition: background 0.3s ease;
+  border: #307fff 2px solid;
+  background-color: #2bb6d5;
+  color: #fd8750;
+  border-radius: 16px;
+  text-shadow: #421906 1.3px 1.2px 1px;
+  transition: all 0.2s ease;
   margin: 5px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px;
 }
 
 .sort-button:hover {
-  background-color: #0056b3;
+  color: #681c97;
+  border-color: #f96824;
+  background-color: #fc7f45;
+  text-shadow: 0 0 10px #ffe262, 0 0 20px #ffe262, 0 0 30px #ffe262;
+}
+
+.sort-button:active {
+  transition: all 0.1s ;
+  color: #c362ff;
+  background-color: #ff9462;
+  box-shadow: none;
 }

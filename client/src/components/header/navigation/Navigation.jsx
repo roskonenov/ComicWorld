@@ -18,7 +18,6 @@ export default function Navigation() {
                 {navItems.map(item => <NavItem
                     key={item.name}
                     item={item}
-                    style={({ isActive }) => isActive ? { color: '#c362ff' } : {}}
                 />)}
             </ul>
         </nav>

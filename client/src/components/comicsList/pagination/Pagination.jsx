@@ -9,7 +9,9 @@ export default function Pagination({
 }) {
     return (
         < div className={styles['pagination']}>
-            <button onClick={prevPage} disabled={currentPage === 1}>
+            <button
+                onClick={prevPage}
+                disabled={currentPage === 1}>
                 Prev
             </button>
             <span>Page {currentPage}</span>
@@ -20,5 +22,5 @@ export default function Pagination({
                 Next
             </button>
         </div>
-   );
+    );
 }

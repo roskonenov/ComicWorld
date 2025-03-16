@@ -8,7 +8,9 @@ export default function NavItem({
         <li className={styles['list-item']}>
             <NavLink
                 className={styles.link}
-                to={item.path}>
+                to={item.path}
+                style={({ isActive }) => isActive ? { 'text-shadow': '0 0 10px #ffe262, 0 0 20px #ffe262, 0 0 30px #ffe262' } : {}}
+            >
                 {item.name}
             </NavLink>
         </li>

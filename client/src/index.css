@@ -9,15 +9,18 @@ body {
     padding-top: 8vh;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    font-family: "Montserrat Alternates", sans-serif;
-}
-
 *, *::before, *::after {
     box-sizing: inherit;
     margin: 0;
     padding: 0;
+    font: inherit;
 }
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Montserrat Alternates", sans-serif;
+}
+
+
 
 a {
     color: inherit;
