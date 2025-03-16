@@ -69,15 +69,12 @@
 }
 
 .sort-button:hover {
-  color: #681c97;
-  border-color: #f96824;
-  background-color: #fc7f45;
   text-shadow: 0 0 10px #ffe262, 0 0 20px #ffe262, 0 0 30px #ffe262;
 }
 
 .sort-button:active {
   transition: all 0.1s ;
   color: #c362ff;
-  background-color: #ff9462;
+  text-shadow: 0 0 10px #ffe262, 0 0 20px #ffe262, 0 0 30px #ffe262;
   box-shadow: none;
 }
