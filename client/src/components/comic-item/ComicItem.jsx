@@ -1,4 +1,5 @@
 import styles from "./ComicItem.module.css"
+import { Link } from "react-router";
 
 export default function ComicItem({
     _id,
@@ -12,7 +13,7 @@ export default function ComicItem({
         <li className={styles['item-container']}>
             <div className={styles['main-container']}>
                 <div className={styles['cover-container']}>
-                    <a href="#"><img src={coverUrl} className={styles.cover} /></a>
+                    <Link to={`/catalog/${_id}`}><img src={coverUrl} className={styles.cover} /></Link>
                 </div>
                 <div className={styles['price-container']}>
                     <div className={styles['price-content']}>
@@ -20,7 +21,7 @@ export default function ComicItem({
                         <p className={styles['comic-slogan']}>{slogan}</p>
                         <p className={styles['current-price']}>{currentPrice}</p>
                         {oldPrice && <p className={styles['old-price']}>{oldPrice}</p>}
-                        <button className={styles['buy-btn']}>Buy now</button>
+                        <Link to="#"><button className={styles['buy-btn']}>Buy now</button></Link>
                     </div>
                 </div>
             </div>

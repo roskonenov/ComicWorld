@@ -9,7 +9,7 @@ export default function NavItem({
             <NavLink
                 className={styles.link}
                 to={item.path}
-                style={({ isActive }) => isActive ? { 'text-shadow': '0 0 10px #ffe262, 0 0 20px #ffe262, 0 0 30px #ffe262' } : {}}
+                style={({ isActive }) => isActive ? { 'textShadow': '0 0 10px #ffe262, 0 0 20px #ffe262, 0 0 30px #ffe262' } : {}}
             >
                 {item.name}
             </NavLink>

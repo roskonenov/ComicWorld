@@ -3,6 +3,7 @@ import BackgroundVideo from "./components/background/BackgroundVideo"
 import Header from "./components/header/Header"
 import Home from "./components/home/Home"
 import ComicsList from "./components/comicsList/ComicsList"
+import ComicDetails from "./components/comic-details/ComicDetails"
 
 function App() {
 
@@ -12,7 +13,8 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/all-comics" element={<ComicsList />} />
+        <Route path="/catalog" element={<ComicsList />} />
+        <Route path="/catalog/:comicId" element={<ComicDetails />} />
       </Routes>
     </>
   )

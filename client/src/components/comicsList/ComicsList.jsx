@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState } from "react";
 import styles from "./ComicsList.module.css";
-import useGetResources from "../../hooks/useGetResource";
+import useGetResources from "../../hooks/useGetResources";
 import Spinner from "../spinner/Spinner";
 import ComicItem from "../comic-item/ComicItem";
 import Filter from "./filter/Filter";
@@ -17,7 +17,7 @@ export default function ComicsList() {
     const [isSorted, setIsSorted] = useState(false);
     const comicsPerPage = 12;
 
-    const [loading, comicsData] = useGetResources(baseUrl);
+    const [loading, comicsData] = useGetResources(baseUrl, []);
 
     const filteredComics = useMemo(() => {
         return comicsData.filter(comic => {

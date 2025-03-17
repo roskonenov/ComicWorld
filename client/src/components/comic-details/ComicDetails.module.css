@@ -1,0 +1,13 @@
+.details-section {
+    width: 80vw;
+    height: 80vh;
+    margin: 50px auto;
+    border: 2px solid  #ff9462;
+    border-radius: 12px;
+    background: #ff9462ce
+}
+
+.details-container {
+    margin: 30px;
+}
+
