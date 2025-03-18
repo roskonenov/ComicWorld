@@ -6,7 +6,7 @@ import ComicItem from "../comic-item/ComicItem";
 import Filter from "./filter/Filter";
 import Pagination from "./pagination/Pagination";
 
-const baseUrl = 'http://localhost:3030/jsonstore/comics-info';
+const baseUrl = 'http://localhost:3030/data/comicsInfo';
 
 export default function ComicsList() {
 
@@ -17,7 +17,7 @@ export default function ComicsList() {
     const [isSorted, setIsSorted] = useState(false);
     const comicsPerPage = 12;
 
-    const [loading, comicsData] = useGetResources(baseUrl, []);
+    const [loading, comicsData] = useGetResources(baseUrl);   
 
     const filteredComics = useMemo(() => {
         return comicsData.filter(comic => {
@@ -33,7 +33,7 @@ export default function ComicsList() {
                 : b.title.localeCompare(a.title);
         })
         : filteredComics;
-    }, [filteredComics, sortOrder]);
+    }, [filteredComics, sortOrder, isSorted]);
 
     const indexOfLastComic = currentPage * comicsPerPage;
     const indexOfFirstComic = indexOfLastComic - comicsPerPage;

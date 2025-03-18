@@ -4,11 +4,11 @@ import homeStyle from "./Home.module.css"
 import useGetResources from "../../hooks/useGetResources";
 import Spinner from "../spinner/Spinner";
 
-const baseUrl = 'http://localhost:3030/jsonstore/comics-info';
+const baseUrl = 'http://localhost:3030/data/comicsInfo';
 
 export default function Home() {
 
-    const [loading, comicsData] = useGetResources(baseUrl, []);
+    const [loading, comicsData] = useGetResources(baseUrl);
 
     const latestComics = comicsData.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)).slice(0, 5);
     const discountedComics = comicsData.filter(comic => comic.oldPrice).slice(0, 5);
