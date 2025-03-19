@@ -1,3 +1,11 @@
+:root {
+  --black: #191919;
+  --magenta: #c362ff ;
+  --yelow: #ffe262;
+  --blue:  #62daff ;
+  --orange: #ff9462 ;
+}
+
 .loader {
 
   background: #c362ffcb;
@@ -5,12 +13,12 @@
   width: 5em;
   margin:0 calc((100% - 5em) / 2);
   margin-top: 250px;
-  border: 3px solid #ff9462;
+  border: 3px solid var(--orange);
   border-radius: 15px;
   display: inline-block;
   font-size: 48px;
   font-weight: bold;
-  color: #62daff;
+  color: var(--blue);
   position: relative;
   z-index: 1;
 }
@@ -23,7 +31,7 @@
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  border: 5px solid #62daff;
+  border: 5px solid var(--blue);
   border-bottom-color: #FF3D00;
   animation: rotation 0.6s linear infinite;
   z-index: 1;

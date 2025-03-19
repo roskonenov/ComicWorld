@@ -1,3 +1,11 @@
+:root {
+  --black: #191919;
+  --magenta: #c362ff;
+  --yelow: #ffe262;
+  --blue:  #62daff ;
+  --orange: #ff9462 ;
+}
+
 .pagination {
   display: flex;
   align-items: center;
@@ -10,7 +18,7 @@
   padding: 12px 8px;
   max-width: 8vw;
   cursor: pointer;
-  border: #307fff 2px solid;
+  border: 2px solid #307fff;
   background-color: #2bb6d5;
   color: #fd8750;
   border-radius: 50px;
@@ -21,13 +29,13 @@
 }
 
 .pagination button:hover {
-  text-shadow: 0 0 10px #ffe262, 0 0 20px #ffe262, 0 0 30px #ffe262;
+  text-shadow: 0 0 10px var(--yelow), 0 0 20px var(--yelow), 0 0 30px var(--yelow);
 }
 
 .pagination button:active {
   transition: all 0.1s;
-  color: #c362ff;
-  text-shadow: 0 0 10px #ffe262, 0 0 20px #ffe262, 0 0 30px #ffe262;
+  color: var(--magenta);;
+  text-shadow: 0 0 10px var(--yelow), 0 0 20px var(--yelow), 0 0 30px var(--yelow);
   box-shadow: none;
 }
 

@@ -1,3 +1,11 @@
+:root {
+  --black: #191919;
+  --magenta: #c362ff;
+  --yelow: #ffe262;
+  --blue:  #62daff ;
+  --orange: #ff9462 ;
+}
+
 .comic-container {
   margin-top: 80px;
   display: flex;
@@ -13,7 +21,7 @@
   width: calc(100% - 120px);
   height: fit-content;
   background: #c362ffa0;
-  border: 2px solid #c362ff;
+  border: 2px solid var(--magenta);
   border-radius: 12px;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
   flex: 1 0 100%;

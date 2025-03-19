@@ -1,12 +1,12 @@
 import React, { useEffect, useMemo, useState } from "react";
 import styles from "./ComicsList.module.css";
-import useGetResources from "../../hooks/useGetResources";
 import Spinner from "../spinner/Spinner";
 import ComicItem from "../comic-item/ComicItem";
 import Filter from "./filter/Filter";
 import Pagination from "./pagination/Pagination";
+import { useComics } from "../../api/comicApi";
 
-const baseUrl = 'http://localhost:3030/data/comicsInfo';
+
 
 export default function ComicsList() {
 
@@ -17,7 +17,7 @@ export default function ComicsList() {
     const [isSorted, setIsSorted] = useState(false);
     const comicsPerPage = 12;
 
-    const [loading, comicsData] = useGetResources(baseUrl);   
+    const [loading, comicsData] = useComics();   
 
     const filteredComics = useMemo(() => {
         return comicsData.filter(comic => {
@@ -44,7 +44,7 @@ export default function ComicsList() {
 
     }, [currentPage, filteredComics, sortOrder]);
 
-    const handleSearchChange = (value) => {
+    const searchChangeHandler = (value) => {
         setSearch(value);
         setCurrentPage(1);
     };
@@ -73,7 +73,7 @@ export default function ComicsList() {
     return (
         <div className={styles['comic-container']}>
 
-            <Filter handleSort={sortHandler} sortOrder={sortOrder} onSearchChange={handleSearchChange} />
+            <Filter handleSort={sortHandler} sortOrder={sortOrder} onSearchChange={searchChangeHandler} />
 
             <div className={styles['comic-list']}>
                 {displayComics.map((comic) => <ComicItem key={comic._id} {...comic} />)}

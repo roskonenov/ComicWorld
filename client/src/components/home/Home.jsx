@@ -1,19 +1,17 @@
 import Section from "./section/Section";
 import homeStyle from "./Home.module.css"
 
-import useGetResources from "../../hooks/useGetResources";
 import Spinner from "../spinner/Spinner";
-
-const baseUrl = 'http://localhost:3030/data/comicsInfo';
+import { useLatestComics } from "../../api/comicApi";
+import useDiscountedComics from "../../hooks/useDiscountedComics";
 
 export default function Home() {
 
-    const [loading, comicsData] = useGetResources(baseUrl);
+    const [loading, latestComics] = useLatestComics(5);
+    
+    const [pending, discountedComics] = useDiscountedComics(5);
 
-    const latestComics = comicsData.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)).slice(0, 5);
-    const discountedComics = comicsData.filter(comic => comic.oldPrice).slice(0, 5);
-
-    if (loading) {
+    if (loading || pending) {
         return <Spinner />
     }
 

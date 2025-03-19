@@ -1,12 +1,20 @@
+:root {
+    --black: #191919;
+    --magenta: #c362ff ;
+    --yelow: #ffe262;
+    --blue:  #62daff ;
+    --orange: #ff9462 ;
+}
+
 header {
-    background: #62daff;
+    background: var(--blue);
     width: 100vw;
     height: 8vh;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
-    border-bottom: 2px solid #c362ff;
+    border-bottom: 2px solid var(--magenta);
     position: fixed;
     top: 0;
     z-index: 1000;

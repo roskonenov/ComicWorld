@@ -1,3 +1,11 @@
+:root {
+    --black: #191919;
+    --magenta: #c362ff ;
+    --yelow: #ffe262;
+    --blue:  #62daff ;
+    --orange: #ff9462 ;
+}
+
 .item-container {
 	margin: auto;
 	display: flex;
@@ -23,7 +31,7 @@
 .cover {
 	width: 100%;
 	height: 100%;
-	box-shadow: 0 5px 20px 3px rgba(0, 0, 0, 0.6);
+	box-shadow: 0 5px 20px 3px var(--black);
 	object-fit: cover;
 }
 
@@ -39,7 +47,7 @@
 	position: absolute;
 	top: 20px;
 	left: -1vw;
-	box-shadow: 0 5px 20px 3px rgba(0, 0, 0, 0.6);
+	box-shadow: 0 5px 20px 3px var(--black);
 	opacity: 0;
 }
 
@@ -128,7 +136,7 @@
 .buy-btn {
 	cursor: pointer;
 	width: 100%;
-	background: #c362ff;
+	background: var(--magenta);
 	color: white;
 	padding: 15px 0;
 	font-size: 1em;
@@ -140,6 +148,6 @@
 	transition: all 0.3s ease-out;
 
 	&:hover {
-		text-shadow: #ffe262 0px 0px 5px, #ffe262 0px 0px 10px, #ffe262 0px 0px 15px, #ff9462 0px 0px 10px, #ff9462 0px 0px 12px, #ff9462 0px 0px 40px, #ff9462 0px 0px 15px, #ff9462 0px 0px 25px;
+		text-shadow: var(--yelow) 0px 0px 5px, var(--black) 0px 0px 10px, var(--black) 0px 0px 15px, var(--orange) 0px 0px 10px, var(--orange) 0px 0px 12px, var(--orange) 0px 0px 40px, var(--orange) 0px 0px 15px, var(--orange) 0px 0px 25px;
 	}
 }

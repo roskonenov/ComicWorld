@@ -1,12 +1,15 @@
-import useGetResources from '../../hooks/useGetResources';
+import { useComic } from '../../api/comicApi';
 import Spinner from '../spinner/Spinner';
 import styles from './ComicDetails.module.css';
 import { useParams } from 'react-router';
+import StarRating from './star-rating/StarRating';
 
 export default function ComicDetails() {
-    const {comicId} = useParams();
+    const { comicId } = useParams();
 
-    const [loading, comic] = useGetResources(`http://localhost:3030/jsonstore/comics-info/${comicId}`);
+    const [loading, comic] = useComic(comicId);
+    console.log(comic);
+    
 
     if (loading) {
         return <Spinner />;
@@ -15,9 +18,10 @@ export default function ComicDetails() {
         <section className={styles['details-section']}>
             <div className={styles['details-container']}>
                 <div className={styles['cover-container']}>
-                    <div className="cover">
-                        <img src="" alt="" />
+                    <div className={styles.cover}>
+                        <img src={comic.coverUrl} alt={`cover page fo ${comic.title}`} />
                     </div>
+                    <StarRating />
                 </div>
                 <div className={styles['info-container']}></div>
             </div>

@@ -1,13 +1,45 @@
+:root {
+    --black: #191919;
+    --magenta: #c362ff ;
+    --yelow: #ffe262;
+    --blue:  #62daff ;
+    --orange: #ff9462 ;
+}
+
 .details-section {
     width: 80vw;
     height: 80vh;
     margin: 50px auto;
-    border: 2px solid  #ff9462;
+    border: 2px solid #ff9462;
     border-radius: 12px;
     background: #ff9462ce
 }
 
 .details-container {
+    width: 100%;
+    height: 100%;
     margin: 30px;
 }
 
+.cover-container {
+    width: 50%;
+    height: 95%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.cover {
+    flex: 1 0 50%;
+    width: auto;
+    height: 80%;
+    margin-right: 20px;
+}
+
+.cover img {
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 0 10px 0 #ff9462;
+    object-fit: fill;
+}
