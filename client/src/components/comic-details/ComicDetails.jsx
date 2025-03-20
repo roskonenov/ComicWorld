@@ -8,23 +8,23 @@ export default function ComicDetails() {
     const { comicId } = useParams();
 
     const [loading, comic] = useComic(comicId);
-    console.log(comic);
-    
 
     if (loading) {
         return <Spinner />;
     }
     return (
-        <section className={styles['details-section']}>
-            <div className={styles['details-container']}>
-                <div className={styles['cover-container']}>
-                    <div className={styles.cover}>
-                        <img src={comic.coverUrl} alt={`cover page fo ${comic.title}`} />
+        <>
+            <section className={styles['details-section']}>
+                <div className={styles['details-container']}>
+                    <div className={styles['cover-container']}>
+                        <div className={styles.cover}>
+                            <img src={comic.coverUrl} alt={`cover page fo ${comic.title}`} />
+                        </div>
+                        <StarRating {...comic.rating} comicId={comic._id}/>
                     </div>
-                    <StarRating />
+                    <div className={styles['info-container']}></div>
                 </div>
-                <div className={styles['info-container']}></div>
-            </div>
-        </section>
+            </section>
+        </>
     );
 }

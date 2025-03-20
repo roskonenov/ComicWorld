@@ -1,45 +1,57 @@
+import Star from './star/Star';
 import styles from './StarRating.module.css';
 
-export default function StarRating() {
+import { useState, useEffect } from "react";
+
+
+export default function StarRating({
+    value: rating,
+    votes,
+    comicId,
+}) {
+    const [selectedRating, setSelectedRating] = useState(null);
+    const [averageRating, setAverageRating] = useState(0);
+    const [hasVoted, setHasVoted] = useState(false);
+    const [votedComicsList, setVotedComicsList] = useState([]);
+
+    useEffect(() => {
+        const votedComics = JSON.parse(localStorage.getItem("votedComics")) || [];
+        setVotedComicsList(votedComics);
+        setSelectedRating(Math.round(rating))
+        
+        if (votedComics.includes(comicId)) {
+            setHasVoted(true);
+        }
+    }, []);
+
+    function ratingHandler(value) {
+        if (hasVoted) {
+            alert("You have already voted for the comic! You cannot vote again.");
+            return;
+        }
+        setSelectedRating(value);
+        setHasVoted(true);
+        votedComicsList.push(comicId);
+        localStorage.setItem("votedComics", JSON.stringify(votedComicsList));
+    }
+
     return (
-        <div className={styles['star-container']}>
-            <div className={styles['star-container__items']}>
-                <input type="radio" name="stars" id="st5" />
-                <label htmlFor="st5">
-                    <div className={styles['star-stroke']}>
-                        <div className={styles['star-fill']}></div>
-                    </div>
-                    <div className={styles['label-description']} data-content="Excellent"></div>
-                </label>
-                <input type="radio" name="stars" id="st4" />
-                <label htmlFor="st4">
-                    <div className={styles['star-stroke']}>
-                        <div className={styles['star-fill']}></div>
-                    </div>
-                    <div className={styles['label-description']} data-content="Good"></div>
-                </label>
-                <input type="radio" name="stars" id="st3" />
-                <label htmlFor="st3">
-                    <div className={styles['star-stroke']}>
-                        <div className={styles['star-fill']}></div>
-                    </div>
-                    <div className={styles['label-description']} data-content="OK"></div>
-                </label>
-                <input type="radio" name="stars" id="st2" />
-                <label htmlFor="st2">
-                    <div className={styles['star-stroke']}>
-                        <div className={styles['star-fill']}></div>
-                    </div>
-                    <div className={styles['label-description']} data-content="Bad"></div>
-                </label>
-                <input type="radio" name="stars" id="st1" />
-                <label htmlFor="st1">
-                    <div className={styles['star-stroke']}>
-                        <div className={styles['star-fill']}></div>
-                    </div>
-                    <div className={styles['label-description']} data-content="Terrible"></div>
-                </label>
+        <>
+            <div className={styles['star-container']}>
+                <div className={styles['star-container__items']}>
+                    {[5, 4, 3, 2, 1].map(val => (
+                        <Star 
+                        key={val} 
+                        starValue={val} 
+                        ratingHandler={ratingHandler}
+                        selectedRating={selectedRating} />))}
+                </div>
             </div>
-        </div>
+            <div className={styles['rating-container']}>
+                <h4 className="rating">Rating {rating}</h4>
+                &nbsp;/&nbsp; 
+                <h4 className="voters">{votes} votes</h4>
+            </div>
+        </>
     );
 }
