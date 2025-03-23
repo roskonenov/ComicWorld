@@ -1,11 +1,3 @@
-:root {
-    --black: #191919;
-    --magenta: #c362ff ;
-    --yelow: #ffe262;
-    --blue:  #62daff ;
-    --orange: #ff9462 ;
-}
-
 .list-item {
     transition: all 0.2s ease-out;
 

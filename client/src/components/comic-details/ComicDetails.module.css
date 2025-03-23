@@ -1,28 +1,23 @@
-:root {
-    --black: #191919;
-    --magenta: #c362ff ;
-    --yelow: #ffe262;
-    --blue:  #62daff ;
-    --orange: #ff9462 ;
-}
-
 .details-section {
     width: 80vw;
     height: 80vh;
     margin: 50px auto;
     border: 2px solid #ff9462;
     border-radius: 12px;
-    background: #ff9462ce
+    background: #ff9462f0
 }
 
 .details-container {
-    width: 100%;
-    height: 100%;
+    width: calc(100% - 60px);
+    height: calc(100% - 60px);
     margin: 30px;
+    display: flex;
+    justify-content: space-around;
 }
 
 .cover-container {
-    width:35%;
+    flex: 1 0 40%;
+    gap: 20px;
     height: 95%;
     display: flex;
     flex-direction: column;
@@ -34,6 +29,8 @@
     flex: 1 0 50%;
     width: auto;
     height: 80%;
+    box-shadow: 0 0 0 2px rgb(32, 28, 28), 8px 8px 9px rgb(30, 15, 17);
+    
 }
 
 .cover img {
@@ -41,4 +38,74 @@
     height: 100%;
     box-shadow: 0 0 10px 0 #ff9462;
     object-fit: fill;
+}
+
+.info-container {
+    flex: 0 1 calc(60% - 60px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    gap: 2vh;
+}
+
+.comic-title {
+    margin: 15px;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: calc(1em + min(65px, 3vw));
+    text-align: center;
+    color: var(--yelow);
+    text-shadow: 2px 3px var(--black);
+    paint-order: stroke fill;
+    -webkit-text-stroke: 3px var(--magenta);
+    letter-spacing: -.170ch;
+    line-height: 0.8;
+}
+
+.comic-slogan {
+    font: 25px/1.5 "Comic Neue", sans-serif;
+    font-weight: 600;
+    color: var(--blue);
+    text-shadow: 1px 2px var(--black);
+    letter-spacing: 1.7px;
+}
+
+.comic-creators {
+    height: 67px;
+    padding: 5px;
+    font-size: 20px;
+    font-weight: 600;
+    color: #2b2929;
+    text-shadow: 1px 2px var(--magenta);
+    overflow: auto;
+    text-overflow: padding-box;
+}
+
+.comic-info {
+    height: 20vh;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 8px;
+    color: var(--black);
+    text-shadow: 1px 1px var(--blue);
+    overflow: auto;
+    text-overflow: padding-box;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+    border-radius: 5px;
+    display:inherit;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--blue);
+    border-radius: 5px;
+    margin: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--magenta);
+    border-radius: 5px;
 }

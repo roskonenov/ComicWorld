@@ -22,7 +22,12 @@ export default function ComicDetails() {
                         </div>
                         <StarRating {...comic.rating} comicId={comic._id}/>
                     </div>
-                    <div className={styles['info-container']}></div>
+                    <div className={styles['info-container']}>
+                        <h2 className={styles['comic-title']}>{comic.title}</h2>
+                        <h3 className={styles['comic-slogan']}>{comic.slogan}</h3>
+                        <p className={styles['comic-creators']}>{`By ${comic.creators}`}</p>
+                        <p className={styles['comic-info']}>{comic.info}</p>
+                    </div>
                 </div>
             </section>
         </>
