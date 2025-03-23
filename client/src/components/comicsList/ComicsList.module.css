@@ -22,6 +22,7 @@
   row-gap: 22vh;
   justify-content: center;
   z-index: 0;
+  backdrop-filter: blur(10px);
 }
 
 .comic-card {

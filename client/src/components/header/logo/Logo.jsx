@@ -7,6 +7,7 @@ export default function Logo() {
             <Link to="/">
                 <h1 className={styles.logo}>
                     <span>Comic</span>
+                    &nbsp;
                     <span>World</span>
                 </h1>
             </Link>
