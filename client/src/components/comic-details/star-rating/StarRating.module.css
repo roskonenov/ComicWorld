@@ -7,8 +7,7 @@
     width: 45%;
     height: 10%;
     transform: rotateY(180deg);
-    margin-left: .4vw;
-    margin-top: -40px;
+    margin-bottom: 15px;
 }
 
 .star-container .star-container__items {
@@ -21,6 +20,7 @@
 }
 
 .rating-container {
+    margin-top: 10px;
     color: var(--blue);
     text-shadow:  #421906 1.3px 1.2px 1px;
 }

@@ -1,11 +1,3 @@
-:root {
-  --black: #191919;
-  --magenta: #c362ff;
-  --yelow: #ffe262;
-  --blue:  #62daff ;
-  --orange: #ff9462 ;
-}
-
 .comic-container {
   margin-top: 80px;
   display: flex;
@@ -30,6 +22,7 @@
   row-gap: 22vh;
   justify-content: center;
   z-index: 0;
+  backdrop-filter: blur(10px);
 }
 
 .comic-card {

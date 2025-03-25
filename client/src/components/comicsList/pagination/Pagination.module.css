@@ -1,11 +1,3 @@
-:root {
-  --black: #191919;
-  --magenta: #c362ff;
-  --yelow: #ffe262;
-  --blue:  #62daff ;
-  --orange: #ff9462 ;
-}
-
 .pagination {
   display: flex;
   align-items: center;
@@ -23,7 +15,6 @@
   color: #fd8750;
   border-radius: 50px;
   text-shadow: #421906 1.3px 1.2px 1px;
-  /* transition: all 0.1s ease; */
   margin: 5px;
   box-shadow: 0 5px 20px 3px rgba(0, 0, 0, 0.6);
 }
@@ -34,7 +25,7 @@
 
 .pagination button:active {
   transition: all 0.1s;
-  color: var(--magenta);;
+  color: var(--magenta);
   text-shadow: 0 0 10px var(--yelow), 0 0 20px var(--yelow), 0 0 30px var(--yelow);
   box-shadow: none;
 }
