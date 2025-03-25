@@ -1,3 +1,5 @@
+import { useComicRating, usePostComicRating } from '../../../api/comicApi';
+import useCreateResources from '../../../hooks/useCreateResources';
 import Star from './star/Star';
 import styles from './StarRating.module.css';
 
@@ -5,14 +7,15 @@ import { useState, useEffect } from "react";
 
 
 export default function StarRating({
-    value: rating,
-    votes,
+    ratingId,
     comicId,
 }) {
     const [selectedRating, setSelectedRating] = useState(null);
     const [averageRating, setAverageRating] = useState(0);
     const [hasVoted, setHasVoted] = useState(false);
     const [votedComicsList, setVotedComicsList] = useState([]);
+
+    const [{value: rating} , votes] = useComicRating(ratingId)
 
     useEffect(() => {
         const votedComics = JSON.parse(localStorage.getItem("votedComics")) || [];
@@ -22,13 +25,15 @@ export default function StarRating({
         if (votedComics.includes(comicId)) {
             setHasVoted(true);
         }
-    }, []);
+    }, [comicId]);
 
     function ratingHandler(value) {
         if (hasVoted) {
             alert("You have already voted for the comic! You cannot vote again.");
             return;
         }
+
+        usePostComicRating(ratingId, value)
         setSelectedRating(value);
         setHasVoted(true);
         votedComicsList.push(comicId);

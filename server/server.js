@@ -1356,10 +1356,7 @@
                 currentPrice: "5.2",
                 oldPrice: "",
                 createdAt: "2024-05-01T07:22:00.358Z",
-                rating: {
-                    value: 4.5,
-                    votes: 2
-                },
+                ratingId: "dc79c140-f0fe-4877-b751-3ca8a3aafc6a",
                 _id: "dc79c140-f0fe-4877-b751-3ca8a3aafc6a",
                 _createdOn: 1613551275612
             },
@@ -1371,10 +1368,7 @@
                 currentPrice: "3.90",
                 oldPrice: "4.80",
                 createdAt: "2025-11-16T07:22:00.358Z",
-                rating: {
-                    value: 4.2,
-                    votes: 3
-                },
+                ratingId: "36f9c859-3ed5-4405-82c7-0741b2085863",
                 _id: "36f9c859-3ed5-4405-82c7-0741b2085863",
                 _createdOn: 1613551852012
             },
@@ -1386,10 +1380,7 @@
                 currentPrice: "3.99",
                 oldPrice: "",
                 createdAt: "2025-12-18T07:22:00.358Z",
-                rating: {
-                    value: 4.5,
-                    votes: 28
-                },
+                ratingId: "71bfcd5b-b962-4229-8e6f-de2e427fe69d",
                 _id: "71bfcd5b-b962-4229-8e6f-de2e427fe69d",
                 _createdOn: 1613551226812
             },
@@ -1401,10 +1392,7 @@
                 currentPrice: "4.70",
                 oldPrice: "5.00",
                 createdAt: "2024-04-01T07:22:00.358Z",
-                rating: {
-                    value: 4.4,
-                    votes: 14
-                },
+                ratingId: "71bfcd5b-b962-4229-8e6f-de2e427th69d",
                 _id: "71bfcd5b-b962-4229-8e6f-de2e427th69d",
                 _createdOn: 1613551245812
             },
@@ -1416,10 +1404,7 @@
                 currentPrice: "4.60",
                 oldPrice: "",
                 createdAt: "2024-03-01T07:22:00.358Z",
-                rating: {
-                    value: 3.9,
-                    votes: 8
-                },
+                ratingId: "d239fb5b-f90a-4862-9162-f9e9f6757683",
                 _id: "d239fb5b-f90a-4862-9162-f9e9f6757683",
                 _createdOn: 1613555749012
             },
@@ -1431,10 +1416,7 @@
                 currentPrice: "6.50",
                 oldPrice: "",
                 createdAt: "2024-02-15T07:22:00.358Z",
-                rating: {
-                    value: 4.3,
-                    votes: 12
-                },
+                ratingId: "71bfcd5b-b962-4229-8e6f-de2s727fe69d",
                 _id: "71bfcd5b-b962-4229-8e6f-de2s727fe69d",
                 _createdOn: 1613551253212
             },
@@ -1446,10 +1428,7 @@
                 currentPrice: "5.55",
                 oldPrice: "",
                 createdAt: "2025-02-10T07:22:00.358Z",
-                rating: {
-                    value: 4.8,
-                    votes: 17
-                },
+                ratingId: "71bfcd5b-b962-4229-8e6f-de2s687fe69d",
                 _id: "71bfcd5b-b962-4229-8e6f-de2s687fe69d",
                 _createdOn: 1613551275312
             },
@@ -1461,10 +1440,7 @@
                 currentPrice: "3.86",
                 oldPrice: "4.89",
                 createdAt: "2024-04-01T07:22:00.358Z",
-                rating: {
-                    value: 4.3,
-                    votes: 16
-                },
+                ratingId: "09bb4abb-ad24-438c-b653-3d422c519f33",
                 _id: "09bb4abb-ad24-438c-b653-3d422c519f33",
                 _createdOn: 1613551236512
             },
@@ -1476,10 +1452,7 @@
                 currentPrice: "5.30",
                 oldPrice: "",
                 createdAt: "2025-03-02T07:22:00.358Z",
-                rating: {
-                    value: 2.1,
-                    votes: 10
-                },
+                ratingId: "09bb4abb-ad24-438c-b653-3d456h719f33",
                 _id: "09bb4abb-ad24-438c-b653-3d456h719f33",
                 _createdOn: 1613551215412
             },
@@ -1491,10 +1464,7 @@
                 currentPrice: "3.69",
                 oldPrice: "5.40",
                 createdAt: "2023-11-01T07:22:00.358Z",
-                rating: {
-                    value: 4.6,
-                    votes: 35
-                },
+                ratingId: "02901320-de01-4ab5-a7ac-f6b2bd71f5c0",
                 _id: "02901320-de01-4ab5-a7ac-f6b2bd71f5c0",
                 _createdOn: 1613551246312
             },
@@ -1506,10 +1476,7 @@
                 currentPrice: "5.90",
                 oldPrice: "6.30",
                 createdAt: "2025-01-14T07:22:00.358Z",
-                rating: {
-                    value: 4.8,
-                    votes: 6
-                },
+                ratingId: "09bb4abb-ad24-438c-b863-3d456h719f33",
                 _id: "09bb4abb-ad24-438c-b863-3d456h719f33",
                 _createdOn: 1613551785012
             },
@@ -1521,10 +1488,7 @@
                 currentPrice: "3.80",
                 oldPrice: "4.30",
                 createdAt: "2024-12-18T07:22:00.358Z",
-                rating: {
-                    value: 2.5,
-                    votes: 6
-                },
+                ratingId: "09bb4abb-ad24-438c-b863-3d4fuyfd5f33",
                 _id: "09bb4abb-ad24-438c-b863-3d4fuyfd5f33",
                 _createdOn: 1613551237412
             },
@@ -1536,10 +1500,7 @@
                 currentPrice: "5.30",
                 oldPrice: "",
                 createdAt: "2024-08-15T07:22:00.358Z",
-                rating: {
-                    value: 4.0,
-                    votes: 1
-                },
+                ratingId: "09bb4abb-ad24-438c-b863-3d4fuyffd9d3",
                 _id: "09bb4abb-ad24-438c-b863-3d4fuyffd9d3",
                 _createdOn: 1613551483012
             },
@@ -1551,10 +1512,7 @@
                 currentPrice: "5.30",
                 oldPrice: "6.00",
                 createdAt: "2025-04-15T07:22:00.358Z",
-                rating: {
-                    value: 4.7,
-                    votes: 6
-                },
+                ratingId: "09bb4abb-ad24-438c-b863-3d4fgpekt9d3",
                 _id: "09bb4abb-ad24-438c-b863-3d4fgpekt9d3",
                 _createdOn: 1613551354012
             },
@@ -1566,10 +1524,7 @@
                 currentPrice: "4.60",
                 oldPrice: "",
                 createdAt: "2024-08-10T07:22:00.358Z",
-                rating: {
-                    value: 4.2,
-                    votes: 7
-                },
+                ratingId: "09bb4abb-ad24-438c-b863-hj67djpekt9d3",
                 _id: "09bb4abb-ad24-438c-b863-hj67djpekt9d3",
                 _createdOn: 1613551279248
             },
@@ -1581,10 +1536,7 @@
                 currentPrice: "4.20",
                 oldPrice: "",
                 createdAt: "2024-10-24T07:22:00.358Z",
-                rating: {
-                    value: 4.4,
-                    votes: 25
-                },
+                ratingId: "09bb4abb-ad24-438c-b863-hj6pjg5f6t9d3",
                 _id: "09bb4abb-ad24-438c-b863-hj6pjg5f6t9d3",
                 _createdOn: 1613551212312
             },
@@ -1596,10 +1548,7 @@
                 currentPrice: "5.25",
                 oldPrice: "5.80",
                 createdAt: "2024-10-24T07:22:00.358Z",
-                rating: {
-                    value: 3.6,
-                    votes: 4
-                },
+                ratingId: "09bb4abb-ad24-438c-b863-hjkiebt6f6t9d3",
                 _id: "09bb4abb-ad24-438c-b863-hjkiebt6f6t9d3",
                 _createdOn: 1613551236812
             },
@@ -1611,10 +1560,7 @@
                 currentPrice: "5.60",
                 oldPrice: "",
                 createdAt: "2025-01-24T07:22:00.358Z",
-                rating: {
-                    value: 4.3,
-                    votes: 3
-                },
+                ratingId: "09bb4abb-ad24-438c-b863-hjkiuj7thggjk4",
                 _id: "09bb4abb-ad24-438c-b863-hjkiuj7thggjk4",
                 _createdOn: 1613551267112
             },
@@ -1626,10 +1572,7 @@
                 currentPrice: "6.30",
                 oldPrice: "",
                 createdAt: "2024-05-24T07:22:00.358Z",
-                rating: {
-                    value: 4.2,
-                    votes: 16
-                },
+                ratingId: "09bb4abb-ad24-438c-b863-hjkgjhg55hggjk4",
                 _id: "09bb4abb-ad24-438c-b863-hjkgjhg55hggjk4",
                 _createdOn: 1613551237412
             },
@@ -1641,10 +1584,7 @@
                 currentPrice: "5.65",
                 oldPrice: "6.00",
                 createdAt: "2024-10-04T07:22:00.358Z",
-                rating: {
-                    value: 4.9,
-                    votes: 10
-                },
+                ratingId: "09bb4abb-ad24-438c-b863-hoknbtcfegjk43",
                 _id: "09bb4abb-ad24-438c-b863-hoknbtcfegjk43",
                 _createdOn: 1613551263412
             },
@@ -1656,10 +1596,7 @@
                 currentPrice: "10.00",
                 oldPrice: "12.56",
                 createdAt: "2024-10-04T07:22:00.358Z",
-                rating: {
-                    value: 4.3,
-                    votes: 5
-                },
+                ratingId: "09bb4abb-ad24-438c-b863-hoknbcfgedfghr",
                 _id: "09bb4abb-ad24-438c-b863-hoknbcfgedfghr",
                 _createdOn: 1613551247312
             }
