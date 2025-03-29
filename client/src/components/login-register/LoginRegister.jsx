@@ -1,10 +1,11 @@
-import { useLocation } from 'react-router';
+import { useLocation, useNavigate } from 'react-router';
 import styles from './LoginRegister.module.css';
 import { useEffect, useState } from 'react';
 
 export default function LoginRegister() {
 
     const location = useLocation().pathname;
+    const navigate = useNavigate();
     const [isChecked, setIsChecked] = useState(false);
 
     useEffect(() => {
@@ -13,6 +14,7 @@ export default function LoginRegister() {
 
     function checkboxChangeHandler() {
         setIsChecked(i => i ? false : true);
+        navigate(isChecked ? '/register' : '/login');
     }
 
     return (

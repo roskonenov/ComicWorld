@@ -25,18 +25,24 @@ export function useLatestComics(count) {
 }
 
 export function useComicRating(ratingId) {
-    const [value, votes] = useGetResources(jsonStoreBaseUrl);
-    return [value, votes];
+    console.log(ratingId)
+    const [_, resource] = useGetResources(`${jsonStoreBaseUrl}/${ratingId}`);
+    const ratingData = Object.values(resource);
+    
+    return {ratingData};
 }
 
-export function usePostComicRating(ratingId, value, votes) {
+export function usePostComicRating() {
+    const { fetchResource, resource, loading, error} = useCreateResources();
 
-    const [pending, resource] = useCreateResources(
-        'PUT',
-        `${jsonStoreBaseUrl}/${ratingId}`,
-        { value, votes }
-    );
-    console.log(pending, resource);
-    
-    return [pending, resource];
+    async function postRating(ratingId, votes, value) {
+        const result = await fetchResource(
+            'PUT',
+            `${jsonStoreBaseUrl}/${ratingId}`,
+            { value, votes }
+        );
+        
+        return result;
+    }
+    return { postRating, resource, loading, error };
 }

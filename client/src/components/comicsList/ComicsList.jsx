@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 import styles from "./ComicsList.module.css";
 import Spinner from "../spinner/Spinner";
 import ComicItem from "../comic-item/ComicItem";
@@ -10,49 +10,45 @@ import { useComics } from "../../api/comicApi";
 
 export default function ComicsList() {
 
-    const [displayComics, setDisplayComics] = useState([]);
     const [sortOrder, setSortOrder] = useState("desc");
     const [currentPage, setCurrentPage] = useState(1);
     const [search, setSearch] = useState('');
     const [isSorted, setIsSorted] = useState(false);
     const comicsPerPage = 12;
 
-    const [loading, comicsData] = useComics();   
+    const [loading, comicsData] = useComics();
 
     const filteredComics = useMemo(() => {
-        return comicsData.filter(comic => {
-            return search === '' || comic.title.toLowerCase().includes(search.toLowerCase());
-        });
+        return comicsData.filter(comic =>
+            search === '' || comic.title.toLowerCase().includes(search.toLowerCase())
+        );
     }, [comicsData, search]);
 
     const sortedComics = useMemo(() => {
         return isSorted
-        ? [...filteredComics].sort((a, b) => {
-            return sortOrder === "asc"
-                ? a.title.localeCompare(b.title)
-                : b.title.localeCompare(a.title);
-        })
-        : filteredComics;
+            ? [...filteredComics].sort((a, b) => {
+                return sortOrder === "asc"
+                    ? a.title.localeCompare(b.title)
+                    : b.title.localeCompare(a.title);
+            })
+            : filteredComics;
     }, [filteredComics, sortOrder, isSorted]);
 
     const indexOfLastComic = currentPage * comicsPerPage;
     const indexOfFirstComic = indexOfLastComic - comicsPerPage;
     const paginatedComics = sortedComics.slice(indexOfFirstComic, indexOfLastComic);
 
-    useEffect(() => {
-        setDisplayComics(paginatedComics);
-
-    }, [currentPage, filteredComics, sortOrder]);
+    const displayComics = useMemo(() => paginatedComics, [paginatedComics]);
 
     const searchChangeHandler = (value) => {
         setSearch(value);
         setCurrentPage(1);
     };
 
-    const sortHandler = () => {
-        setSortOrder(sortOrder === "asc" ? "desc" : "asc");
+    const sortHandler = useCallback(() => {
+        setSortOrder(s => s === "asc" ? "desc" : "asc");
         setIsSorted(true);
-    };
+    }, []);
 
     const nextPage = () => {
         if (currentPage < Math.ceil(filteredComics.length / comicsPerPage)) {
@@ -76,7 +72,10 @@ export default function ComicsList() {
             <Filter handleSort={sortHandler} sortOrder={sortOrder} onSearchChange={searchChangeHandler} />
 
             <div className={styles['comic-list']}>
-                {displayComics.map((comic) => <ComicItem key={comic._id} {...comic} />)}
+                {displayComics.length === 0
+                    ? <h1>There are no Comics to display!</h1>
+                    : displayComics.map((comic) => <ComicItem key={comic._id} {...comic} />)}
+                { }
             </div>
 
             <Pagination

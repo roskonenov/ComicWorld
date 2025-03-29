@@ -1,12 +1,14 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
-export default function useCreateResources(method, url, data, options = {}) {
-    const [resource, setResource] = useState([]);
-    const [pending, setPending] = useState(true);
+export default function useCreateResources() {
+    const [resource, setResource] = useState({});
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(null);
 
-    useEffect(() => {
+    async function fetchResource(method, url, data = null, options = {}) {
+        setLoading(true);
+        setError(null);
 
-        setPending(true);
         const abortController = new AbortController();
         const signal = abortController.signal;
 
@@ -23,16 +25,17 @@ export default function useCreateResources(method, url, data, options = {}) {
             }
         }
 
-        fetch(url, {...options, signal })
-            .then(res => res.json())
-            .then(data => {
-                setResource(data);
-                setPending(false);
-            });
-        return () => {
-            abortController.abort();
-        }
-    }, [url]);
-
-    return [pending, resource];
+        await fetch(url, { ...options, signal })
+            .then(res => {
+                if (!res.ok) {
+                    throw new Error(res.status);
+                }
+                return res.json()
+            })
+            .then(setResource)
+            .catch(error => setError(error))
+            .finally(setLoading(false));
+        console.log(resource);
+    }
+    return { fetchResource, resource, loading, error };
 }

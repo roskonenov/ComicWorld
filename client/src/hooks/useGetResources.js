@@ -5,7 +5,6 @@ export default function useGetResources(url) {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        setLoading(true);
         const abortController = new AbortController();
 
         fetch(url, { signal: abortController.signal })

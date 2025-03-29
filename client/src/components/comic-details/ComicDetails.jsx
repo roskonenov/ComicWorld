@@ -22,7 +22,7 @@ export default function ComicDetails() {
                         <div className={styles.cover}>
                             <img src={comic.coverUrl} alt={`cover page fo ${comic.title}`} />
                         </div>
-                        <StarRating {...comic.rating} comicId={comic._id} />
+                        <StarRating ratingId={comic.ratingId} comicId={comic._id} />
                     </div>
                     <div className={styles['info-container']}>
                         <h2 className={styles['comic-title']}>{comic.title}</h2>
