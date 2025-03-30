@@ -1,6 +1,6 @@
 import { useLocation, useNavigate } from 'react-router';
 import styles from './LoginRegister.module.css';
-import { useEffect, useState } from 'react';
+import { useActionState, useEffect, useState } from 'react';
 
 export default function LoginRegister() {
 
@@ -17,6 +17,16 @@ export default function LoginRegister() {
         navigate(isChecked ? '/register' : '/login');
     }
 
+    function loginHandler(_, formData) {
+        const values = Object.fromEntries(formData);
+
+        return values
+    }
+
+    const [loginValues, loginAction, isPendingLogin] = useActionState(loginHandler, {email: '', password: ''});
+    console.log(loginValues);
+    
+
     return (
         <div className={styles.container}>
             <div className={styles['form-container']}>
@@ -26,7 +36,7 @@ export default function LoginRegister() {
                     id="chk"
                     aria-hidden="true"
                     checked={isChecked}
-                    onClick={checkboxChangeHandler}
+                    onChange={checkboxChangeHandler}
                 />
 
                 <div className={styles.signup}>
@@ -59,7 +69,7 @@ export default function LoginRegister() {
                 </div>
 
                 <div className={styles.login}>
-                    <form>
+                    <form id='login' action={loginAction}>
                         <label
                             className={`${styles.changer} ${isChecked ? styles['inactive-label'] : ""}`}
                             htmlFor="chk"
@@ -75,7 +85,7 @@ export default function LoginRegister() {
                             <label htmlFor="password">Password</label>
                         </div>
 
-                        <button className={styles['submit-btn']}>Login</button>
+                        <button className={styles['submit-btn']} disabled={isPendingLogin}>Login</button>
                     </form>
                 </div>
             </div>

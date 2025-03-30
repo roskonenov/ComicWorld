@@ -10,9 +10,14 @@ export default function ComicDetails() {
     const { comicId } = useParams();
 
     const [loading, comic] = useComic(comicId);
+    
 
     if (loading) {
         return <Spinner />;
+    }
+
+    if (!comic || Object.keys(comic).length === 0) {
+        return <div>No comic data available</div>;
     }
     return (
         <>

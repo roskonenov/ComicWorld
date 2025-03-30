@@ -35,7 +35,6 @@ export default function useCreateResources() {
             .then(setResource)
             .catch(error => setError(error))
             .finally(setLoading(false));
-        console.log(resource);
     }
     return { fetchResource, resource, loading, error };
 }

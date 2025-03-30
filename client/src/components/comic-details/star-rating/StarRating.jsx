@@ -14,12 +14,12 @@ export default function StarRating({
     const [votedComicsList, setVotedComicsList] = useState(() => {
         return JSON.parse(localStorage.getItem("votedComics")) || [];
     });
-
     const { ratingData } = useComicRating(ratingId);
+
     console.log(ratingData);
 
-    const rating = ratingData[0]?.value ?? 0;
-    const votes = ratingData[1]?.votes ?? 0;
+    const rating = ratingData?.value ?? 0;
+    const votes = ratingData?.votes ?? 0;
 
 
     const { postRating, resource, loading, error } = usePostComicRating();

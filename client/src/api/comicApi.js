@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import useCreateResources from "../hooks/useCreateResources";
 import useGetResources from "../hooks/useGetResources";
 
@@ -5,35 +6,53 @@ const collectionsBaseUrl = 'http://localhost:3030/data/comicsInfo';
 const jsonStoreBaseUrl = 'http://localhost:3030/jsonstore/comics-rating';
 
 export function useComics() {
-    const [loading, comics] = useGetResources(collectionsBaseUrl);
+    const { resource: comics, loading, fetchResource } = useGetResources();
+
+    useEffect(() => {
+        fetchResource(collectionsBaseUrl);
+    }, []);
+
     return [loading, comics];
 }
 
 export function useComic(comicId) {
-    const [loading, comic] = useGetResources(`${collectionsBaseUrl}/${comicId}`);
+    const { resource: comic, loading, fetchResource } = useGetResources();
+
+    useEffect(() => {
+        fetchResource(`${collectionsBaseUrl}/${comicId}`);
+
+    }, [comicId]);
+
     return [loading, comic];
 }
 
 export function useLatestComics(count) {
-    const searchParams = new URLSearchParams({
-        sortBy: '_createdOn desc',
-        pageSize: `${count}`,
-    });
+    const { resource: comics, loading, fetchResource } = useGetResources();
 
-    const [loading, comics] = useGetResources(`${collectionsBaseUrl}?${searchParams.toString()}`);
+    useEffect(() => {
+        const searchParams = new URLSearchParams({
+            sortBy: '_createdOn desc',
+            pageSize: `${count}`,
+        });
+        fetchResource(`${collectionsBaseUrl}?${searchParams.toString()}`);
+    }, [count]);
+
     return [loading, comics];
 }
 
 export function useComicRating(ratingId) {
-    console.log(ratingId)
-    const [_, resource] = useGetResources(`${jsonStoreBaseUrl}/${ratingId}`);
-    const ratingData = Object.values(resource);
-    
-    return {ratingData};
+    if(!ratingId) return;
+    const { resource: ratingData, _, fetchResource } = useGetResources();
+
+    useEffect(() => {
+        fetchResource(`${jsonStoreBaseUrl}/${ratingId}`);
+    }, [ratingId]);
+
+    return Object.values(ratingData);
 }
 
 export function usePostComicRating() {
-    const { fetchResource, resource, loading, error} = useCreateResources();
+    const { fetchResource, resource, loading, error } = useCreateResources();
 
     async function postRating(ratingId, votes, value) {
         const result = await fetchResource(
@@ -41,7 +60,7 @@ export function usePostComicRating() {
             `${jsonStoreBaseUrl}/${ratingId}`,
             { value, votes }
         );
-        
+
         return result;
     }
     return { postRating, resource, loading, error };

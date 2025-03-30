@@ -1,11 +1,12 @@
+import React from "react";
 import styles from "./Star.module.css";
 
-export default function Star({
+function Star({
     starValue,
     ratingHandler,
     selectedRating
 }) {
-    
+
 
     const values = {
         1: "Terrible",
@@ -15,17 +16,17 @@ export default function Star({
         5: "Excellent",
     };
 
-    
+
 
     return (
         <>
-            <input 
-            className={styles.star} 
-            type="radio" 
-            name="stars" 
-            id={`st${starValue}`} 
-            checked={selectedRating === starValue}
-            onClick={() => ratingHandler(starValue)}
+            <input
+                className={styles.star}
+                type="radio"
+                name="stars"
+                id={`st${starValue}`}
+                checked={selectedRating === starValue}
+                onChange={() => ratingHandler(starValue)}
             />
             <label className={styles['star-label']} htmlFor={`st${starValue}`}>
                 <div className={styles['star-stroke']}>
@@ -36,3 +37,5 @@ export default function Star({
         </>
     );
 }
+
+export default React.memo(Star);
