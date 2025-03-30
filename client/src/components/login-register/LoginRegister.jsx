@@ -1,7 +1,7 @@
 import { useLocation, useNavigate } from 'react-router';
 import styles from './LoginRegister.module.css';
 import { useActionState, useContext, useEffect, useState } from 'react';
-import { useLogin } from '../../api/authenticationApi';
+import { useLogin, useRegister } from '../../api/authenticationApi';
 import { UserContext } from '../../contexts/UserContext';
 
 export default function LoginRegister() {
@@ -10,6 +10,7 @@ export default function LoginRegister() {
     const navigate = useNavigate();
     const [isChecked, setIsChecked] = useState(false);
     const { login } = useLogin();
+    const { register } = useRegister();
     const { userLoginHandler } = useContext(UserContext);
 
     useEffect(() => {
@@ -22,15 +23,27 @@ export default function LoginRegister() {
     }
 
     async function loginHandler(_, formData) {
-        const values = Object.fromEntries(formData);
-        const authenticationData = await login(values.email, values.password);
+        const {email, password} = Object.fromEntries(formData);
+        const authenticationData = await login(email, password);
         userLoginHandler(authenticationData);
         navigate(-1);
-
-        return values
     }
 
-    const [_, loginAction, isPendingLogin] = useActionState(loginHandler, { email: '', password: '' });
+    async function registerHandler(_, formData) {
+        const {username, email, password, repeatPassword} = Object.fromEntries(formData);
+
+        if(password !== repeatPassword){
+            return;
+        }
+
+        const authData = await register(username, email, password);
+        userLoginHandler(authData);
+        navigate('/');
+    }
+
+    const [_A, loginAction, isPendingLogin] = useActionState(loginHandler, { email: '', password: '' });
+
+    const [_B, registerAction, isPendingRegister] = useActionState(registerHandler, {username: '', email: '', password: '', repeatPassword: ''});
 
 
     return (
@@ -46,7 +59,7 @@ export default function LoginRegister() {
                 />
 
                 <div className={styles.signup}>
-                    <form>
+                    <form action={registerAction}>
                         <label
                             className={`${styles.changer} ${!isChecked ? styles['inactive-label'] : ""}`}
                             htmlFor="chk"
@@ -70,7 +83,7 @@ export default function LoginRegister() {
                             <label htmlFor="repeatPassword">Repeat password</label>
                         </div>
 
-                        <button className={styles['submit-btn']}>Sign up</button>
+                        <button className={styles['submit-btn']} disabled={isPendingRegister}>Sign up</button>
                     </form>
                 </div>
 

@@ -7,6 +7,12 @@ export function useLogin() {
     const { fetchResource, loading } = useCreateResources();
     const abortRef = useRef(new AbortController());
 
+    useEffect(() => {
+        const abortController = abortRef.current;
+       
+        return () => abortController.abort();
+    }, []);
+
     async function login(email, password) {
         return fetchResource(
             'POST',
@@ -15,6 +21,12 @@ export function useLogin() {
             { signal: abortRef.current.signal }
         );
     }
+    return { login, loading };
+}
+
+export function useRegister() {
+    const { fetchResource, loading } = useCreateResources();
+    const abortRef = useRef(new AbortController());
 
     useEffect(() => {
         const abortController = abortRef.current;
@@ -22,5 +34,13 @@ export function useLogin() {
         return () => abortController.abort();
     }, []);
 
-    return { login, loading };
+    async function register(username, email, password) {
+        return fetchResource(
+            'POST',
+            `${baseUrl}/register`,
+            {username, email, password},
+            {signal: abortRef.current.signal}
+        );
+    }
+    return {register, loading};
 }
