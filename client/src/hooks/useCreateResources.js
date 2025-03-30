@@ -16,8 +16,7 @@ export default function useCreateResources() {
                 },
                 body: JSON.stringify(data),
             }
-        }
-        console.log(options);
+        };
         
         const response = await fetch(url, options);
 

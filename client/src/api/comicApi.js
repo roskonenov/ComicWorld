@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import useCreateResources from "../hooks/useCreateResources";
 import useGetResources from "../hooks/useGetResources";
 
@@ -6,52 +6,57 @@ const collectionsBaseUrl = 'http://localhost:3030/data/comicsInfo';
 const jsonStoreBaseUrl = 'http://localhost:3030/jsonstore/comics-rating';
 
 export function useComics() {
-    const { resource: comics, loading, fetchResource } = useGetResources();
+    const [comics, setComics] = useState([]);
+    const { fetchResource, loading, } = useGetResources();
 
     useEffect(() => {
-        fetchResource(collectionsBaseUrl);
+        fetchResource(collectionsBaseUrl)
+            .then(setComics);
     }, []);
-
     return [loading, comics];
 }
 
 export function useComic(comicId) {
-    const { resource: comic, loading, fetchResource } = useGetResources();
+    const [comic, setComics] = useState([]);
+    const { fetchResource, loading, } = useGetResources();
 
     useEffect(() => {
-        fetchResource(`${collectionsBaseUrl}/${comicId}`);
-
+        fetchResource(`${collectionsBaseUrl}/${comicId}`)
+            .then(setComics);
     }, [comicId]);
-
     return [loading, comic];
 }
 
 export function useLatestComics(count) {
-    const { resource: comics, loading, fetchResource } = useGetResources();
+    const [comics, setComics] = useState([]);
+    const { fetchResource, loading, } = useGetResources();
 
     useEffect(() => {
         const searchParams = new URLSearchParams({
             sortBy: '_createdOn desc',
             pageSize: `${count}`,
         });
-        fetchResource(`${collectionsBaseUrl}?${searchParams.toString()}`);
+        fetchResource(`${collectionsBaseUrl}?${searchParams.toString()}`)
+            .then(setComics);
     }, [count]);
 
     return [loading, comics];
 }
 
 export function useComicRating(ratingId) {
-    const { resource: ratingData, _, fetchResource } = useGetResources();
+    const [ratingData, setRatingData] = useState({});
+    const { fetchResource } = useGetResources();
 
     useEffect(() => {
-        fetchResource(`${jsonStoreBaseUrl}/${ratingId}`);
+        fetchResource(`${jsonStoreBaseUrl}/${ratingId}`)
+        .then(setRatingData);
     }, [ratingId]);
 
     return Object.values(ratingData);
 }
 
 export function usePostComicRating() {
-    const { fetchResource, resource, loading, error } = useCreateResources();
+    const { fetchResource } = useCreateResources();
 
     async function postRating(ratingId, votes, value) {
         const result = await fetchResource(
@@ -59,8 +64,7 @@ export function usePostComicRating() {
             `${jsonStoreBaseUrl}/${ratingId}`,
             { value, votes }
         );
-
         return result;
     }
-    return { postRating, resource, loading, error };
+    return { postRating };
 }

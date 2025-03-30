@@ -1,12 +1,14 @@
-import { Route, Routes } from "react-router"
 import BackgroundVideo from "./components/background/BackgroundVideo"
 import Header from "./components/header/Header"
 import Home from "./components/home/Home"
 import ComicsList from "./components/comicsList/ComicsList"
 import ComicDetails from "./components/comic-details/ComicDetails"
 import LoginRegister from "./components/login-register/LoginRegister"
-import { UserContext } from "./contexts/UserContext"
+import Logout from "./components/logout/Logout"
+
+import { Route, Routes } from "react-router"
 import { useState } from "react"
+import { UserContext } from "./contexts/UserContext"
 
 function App() {
   const [authData, setAuthData] = useState({});
@@ -15,8 +17,12 @@ function App() {
     setAuthData(data);
   }
 
+  function userLogoutHandler() {
+    setAuthData({});
+  }
+
   return (
-    <UserContext.Provider value={{ ...authData, userLoginHandler }}>
+    <UserContext.Provider value={{ ...authData, userLoginHandler, userLogoutHandler }}>
       <BackgroundVideo />
       <Header />
       <Routes>
@@ -25,7 +31,7 @@ function App() {
         <Route path="/catalog/:comicId" element={<ComicDetails />} />
         <Route path="/login" element={<LoginRegister />} />
         <Route path="/register" element={<LoginRegister />} />
-
+        <Route path="/logout" element={<Logout />} />
       </Routes>
     </UserContext.Provider>
   )

@@ -1,5 +1,7 @@
+import useGetResources from "../hooks/useGetResources";
 import useCreateResources from "../hooks/useCreateResources";
-import { useEffect, useRef } from "react";
+import { useContext, useEffect, useRef } from "react";
+import { UserContext } from "../contexts/UserContext";
 
 const baseUrl = 'http://localhost:3030/users';
 
@@ -9,7 +11,7 @@ export function useLogin() {
 
     useEffect(() => {
         const abortController = abortRef.current;
-       
+
         return () => abortController.abort();
     }, []);
 
@@ -30,7 +32,7 @@ export function useRegister() {
 
     useEffect(() => {
         const abortController = abortRef.current;
-       
+
         return () => abortController.abort();
     }, []);
 
@@ -38,9 +40,32 @@ export function useRegister() {
         return fetchResource(
             'POST',
             `${baseUrl}/register`,
-            {username, email, password},
-            {signal: abortRef.current.signal}
+            { username, email, password },
+            { signal: abortRef.current.signal }
         );
     }
-    return {register, loading};
+    return { register, loading };
+}
+
+export function useLogout() {
+    const { fetchResource, loading } = useGetResources();
+    const abortRef = useRef(new AbortController());
+    const { accessToken, userLogoutHandler } = useContext(UserContext);
+
+    useEffect(() => {
+        const abortController = abortRef.current;
+
+        const options = {
+            headers: {
+                'X-Authorization': accessToken,
+            },
+        };
+
+        fetchResource(`${baseUrl}/logout`, options)
+            .then(userLogoutHandler);
+
+        return () => abortController.abort();
+    }, [accessToken, userLogoutHandler]);
+    
+    return { isLogout: !!accessToken, loading };
 }

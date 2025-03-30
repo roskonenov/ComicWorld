@@ -1,23 +1,37 @@
 import { useCallback, useState } from "react";
 
 export default function useGetResources() {
-    const [resource, setResource] = useState([]);
     const [loading, setLoading] = useState(false);
 
-    const fetchResource = useCallback((url) => {
-        const abortController = new AbortController();
+    const fetchResource = useCallback(async (url, options = {}) => {
         setLoading(true);
 
-        fetch(url, { signal: abortController.signal })
-            .then(res => res.json())
-            .then(data => {
-                setResource(data);
-                setLoading(false);
-            });
-        return () => {
-            abortController.abort();
+        options = {
+            ...options,
+            headers: {
+                'Content-Type': 'application/json',
+                ...options.headers
+            },
         };
+
+        const response = await fetch(url, options);
+
+        const responseContentType = response.headers.get('Content-Type');
+        
+        if (!responseContentType) {
+            return;
+        }
+
+        if (!response.ok) {
+            const result = await response.json();
+            throw result;
+        }
+
+        const result = await response.json();
+        setLoading(false);
+
+        return result;
     }, []);
 
-    return { resource, loading, fetchResource };
+    return { fetchResource, loading };
 }

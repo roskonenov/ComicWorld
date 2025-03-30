@@ -8,6 +8,7 @@ export default function Navigation() {
         { name: 'My Comics', path: '/my-comics' },
         { name: 'Login', path: '/login' },
         { name: 'Register', path: '/register' },
+        { name: 'Logout', path: '/logout' },
         { name: 'Contacts', path: '/contacts' },
         { name: 'About', path: '/about' },
     ];

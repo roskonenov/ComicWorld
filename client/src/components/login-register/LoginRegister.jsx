@@ -71,7 +71,7 @@ export default function LoginRegister() {
                             <label htmlFor="username">Username</label>
                         </div>
                         <div className={styles['field-container']}>
-                            <input className={styles['input-field']} type="email" name="email" required />
+                            <input className={styles['input-field']} type="email" name="email" placeholder='' required />
                             <label htmlFor="email">Email</label>
                         </div>
                         <div className={styles['field-container']}>
@@ -96,7 +96,7 @@ export default function LoginRegister() {
                             Login
                         </label>
                         <div className={styles['field-container']}>
-                            <input className={styles['input-field']} type="email" name="email" required />
+                            <input className={styles['input-field']} type="email" name="email" placeholder='' required />
                             <label htmlFor="email">Email</label>
                         </div>
                         <div className={styles['field-container']}>

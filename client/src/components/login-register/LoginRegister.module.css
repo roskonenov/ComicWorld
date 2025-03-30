@@ -102,7 +102,8 @@
 
 /* active state */
 .input-field:focus~label,
-.input-field:valid~label {
+.input-field:valid~label,
+.input-field[type=email]:not(:placeholder-shown)~label {
 	top: -20px;
 	font-size: 18px;
 	color: black;
