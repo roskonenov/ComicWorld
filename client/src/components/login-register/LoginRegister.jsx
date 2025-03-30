@@ -1,14 +1,16 @@
 import { useLocation, useNavigate } from 'react-router';
 import styles from './LoginRegister.module.css';
-import { useActionState, useEffect, useState } from 'react';
+import { useActionState, useContext, useEffect, useState } from 'react';
 import { useLogin } from '../../api/authenticationApi';
+import { UserContext } from '../../contexts/UserContext';
 
 export default function LoginRegister() {
 
     const location = useLocation().pathname;
     const navigate = useNavigate();
     const [isChecked, setIsChecked] = useState(false);
-    const { login, loading } = useLogin();
+    const { login } = useLogin();
+    const { userLoginHandler } = useContext(UserContext);
 
     useEffect(() => {
         setIsChecked(location === '/login');
@@ -22,6 +24,7 @@ export default function LoginRegister() {
     async function loginHandler(_, formData) {
         const values = Object.fromEntries(formData);
         const authenticationData = await login(values.email, values.password);
+        userLoginHandler(authenticationData);
         navigate(-1);
 
         return values

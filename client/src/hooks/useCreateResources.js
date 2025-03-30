@@ -2,12 +2,8 @@ import { useState } from "react";
 
 export default function useCreateResources() {
     const [loading, setLoading] = useState(false);
-
     async function fetchResource(method, url, data = null, options = {}) {
         setLoading(true);
-
-        const abortController = new AbortController();
-        const signal = abortController.signal;
 
         options.method = method;
 
@@ -21,8 +17,9 @@ export default function useCreateResources() {
                 body: JSON.stringify(data),
             }
         }
-
-        const response = await fetch(url, { ...options, signal });
+        console.log(options);
+        
+        const response = await fetch(url, options);
 
         const responseContentType = response.headers.get('Content-Type');
         if (!responseContentType) {
