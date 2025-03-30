@@ -2,7 +2,7 @@ import { NavLink } from "react-router";
 import styles from "./NavItem.module.css"
 
 export default function NavItem({
-    item
+    item,
 }) {
     return (
         <li className={styles['list-item']}>
