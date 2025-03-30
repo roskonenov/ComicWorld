@@ -3,14 +3,13 @@ import Spinner from '../spinner/Spinner';
 import styles from './ComicDetails.module.css';
 import { useParams } from 'react-router';
 import StarRating from './star-rating/StarRating';
-import background1 from '../../assets/bubble-templates/comment-background.png';
-import background2 from '../../assets/bubble-templates/yelow-bubble.png';
+import CommentSection from './comment- section/CommentSection';
 
 export default function ComicDetails() {
     const { comicId } = useParams();
-
     const [loading, comic] = useComic(comicId);
-    
+
+
 
     if (loading) {
         return <Spinner />;
@@ -44,46 +43,8 @@ export default function ComicDetails() {
                         </div>
                     </div>
                 </div>
-                
             </section>
-            <section className={styles['comments-container']}>
-                    <h2 className={styles['comment-title']}>Coments</h2>
-                    <div className={styles['comments-wrapper']}>
-                        <div className={styles['comment-container-odd']}>
-                            <div className={styles['comment-background']}>
-                                <img src={background1} alt="" />
-                            </div>
-                            <p className={styles['username']}>roskonenov</p>
-                            <p className={styles['comment-text']}>Lorem Ipsum is simply dummy text of the printing and typesetting industry.. </p>
-                        </div>
-                        <div className={styles['comment-container-even']}>
-                            <div className={styles['comment-background']}>
-                                <img src={background2} alt="" />
-                            </div>
-                            <p className={styles['username']}>roskonenov</p>
-                            <p className={styles['comment-text']}>Lorem Ipsum is simply dummy text of the printing and typesetting industry.. </p>
-                        </div>
-                        <div className={styles['comment-container-odd']}>
-                            <div className={styles['comment-background']}>
-                                <img src={background1} alt="" />
-                            </div>
-                            <p className={styles['username']}>roskonenov</p>
-                            <p className={styles['comment-text']}>Lorem Ipsum  </p>
-                        </div>
-                        <div className={styles['comment-container-even']}>
-                            <div className={styles['comment-background']}>
-                                <img src={background2} alt="" />
-                            </div>
-                            <p className={styles['username']}>roskonenov</p>
-                            <p className={styles['comment-text']}>Lorem Ipsum is simply </p>
-                        </div>
-                    </div>
-                    <form className={styles['add-comment-form']}>
-                        <textarea className={styles['add-comment']} name="add-comment" id="add-comment" rows={6} cols={50}required></textarea>
-                        <label htmlFor="add-comment">Comment this comic</label>
-                        <button className={styles['add-comment-button']}>Add comment</button>
-                    </form>
-                </section>
+            <CommentSection comicId={comicId}/>
         </>
     );
 }

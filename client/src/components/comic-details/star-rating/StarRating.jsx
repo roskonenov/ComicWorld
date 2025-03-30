@@ -16,8 +16,6 @@ export default function StarRating({
     });
     const { ratingData } = useComicRating(ratingId);
 
-    console.log(ratingData);
-
     const rating = ratingData?.value ?? 0;
     const votes = ratingData?.votes ?? 0;
 

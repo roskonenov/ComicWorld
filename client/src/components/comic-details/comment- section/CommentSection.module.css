@@ -1,0 +1,120 @@
+.comments-container {
+    width: 80vw;
+    height: fit-content;
+    margin: 50px auto;
+    padding-bottom: 100px;
+    border: 2px solid #54bcfc;
+    border-radius: 12px;
+    background: #62daffb1;
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.comment-title {
+    margin-top: 30px;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: calc(1em + min(65px, 2vw));
+    text-align: center;
+    color: var(--magenta);
+    text-shadow: 2px 3px var(--black);
+    paint-order: stroke fill;
+    -webkit-text-stroke: 2px var(--black);
+    letter-spacing: -.170ch;
+    line-height: 0.8;
+}
+
+.no-comments {
+    color: #fd8750;
+    text-shadow: #421906 1.3px 1.2px 1px;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.comments-wrapper {
+    width: 100%;
+    height: 100%;
+    padding: 80px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 100px;
+}
+
+.add-comment-form {
+    position: relative;
+    display: flex;
+    align-items: end;
+    gap: 20px;
+}
+
+.add-comment {
+    background: var(--blue);
+    font-size: 22px;
+    font-weight: bold;
+    padding: 10px 10px 10px 5px;
+    display: block;
+    border: 2px solid var(--magenta);
+    border-radius: 12px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px;
+
+    &:focus {
+        outline: none;
+        box-shadow: none;
+    }
+}
+
+.add-comment~label {
+    color: #fd8750;
+    text-shadow: #421906 1.3px 1.2px 1px;
+    font-size: 24px;
+    font-weight: bold;
+    position: absolute;
+    pointer-events: none;
+    left: 5px;
+    top: 10px;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+}
+
+/* active state */
+.add-comment:focus~label,
+.add-comment:valid~label {
+    top: -20px;
+    font-size: 18px;
+    color: black;
+    text-shadow: #fff 1.2px 1.2px 1px;
+    /* background: #ffe262e5; */
+    border-radius: 2px;
+    line-height: 1em;
+}
+
+.add-comment-button {
+    background: var(--magenta);
+    border: 1.3px solid #8d578a;
+    cursor: pointer;
+    padding: 8px 6px;
+    width: fit-content;
+    height: fit-content;
+    border-radius: 8px;
+    color: whitesmoke;
+    text-transform: uppercase;
+    text-shadow: 1.5px 2px rgb(56, 55, 58);
+    font-weight: bold;
+    letter-spacing: 1.6px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px;
+    transition: all 0.15s ease;
+}
+
+.add-comment-button:hover {
+    text-shadow: 0 0 10px var(--yelow), 0 0 20px var(--yelow), 0 0 30px var(--yelow);
+}
+
+.add-comment-button:active {
+    text-shadow: 0 0 10px var(--yelow), 0 0 20px var(--yelow), 0 0 30px var(--yelow);
+    box-shadow: none;
+}

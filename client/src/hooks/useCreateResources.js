@@ -2,7 +2,7 @@ import { useState } from "react";
 
 export default function useCreateResources() {
     const [loading, setLoading] = useState(false);
-    async function fetchResource(method, url, data = null, options = {}) {
+    async function fetchResource(method, url, data, options = {}) {
         setLoading(true);
 
         options.method = method;
