@@ -1,12 +1,14 @@
 import { useLocation, useNavigate } from 'react-router';
 import styles from './LoginRegister.module.css';
 import { useActionState, useEffect, useState } from 'react';
+import { useLogin } from '../../api/authenticationApi';
 
 export default function LoginRegister() {
 
     const location = useLocation().pathname;
     const navigate = useNavigate();
     const [isChecked, setIsChecked] = useState(false);
+    const { login, loading } = useLogin();
 
     useEffect(() => {
         setIsChecked(location === '/login');
@@ -17,15 +19,16 @@ export default function LoginRegister() {
         navigate(isChecked ? '/register' : '/login');
     }
 
-    function loginHandler(_, formData) {
+    async function loginHandler(_, formData) {
         const values = Object.fromEntries(formData);
+        const authenticationData = await login(values.email, values.password);
+        navigate(-1);
 
         return values
     }
 
-    const [loginValues, loginAction, isPendingLogin] = useActionState(loginHandler, {email: '', password: ''});
-    console.log(loginValues);
-    
+    const [_, loginAction, isPendingLogin] = useActionState(loginHandler, { email: '', password: '' });
+
 
     return (
         <div className={styles.container}>

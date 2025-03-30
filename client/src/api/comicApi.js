@@ -41,7 +41,6 @@ export function useLatestComics(count) {
 }
 
 export function useComicRating(ratingId) {
-    if(!ratingId) return;
     const { resource: ratingData, _, fetchResource } = useGetResources();
 
     useEffect(() => {

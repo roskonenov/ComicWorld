@@ -18,7 +18,6 @@ export default function useGetResources() {
             abortController.abort();
         };
     }, []);
-    console.log(resource);
 
     return { resource, loading, fetchResource };
 }

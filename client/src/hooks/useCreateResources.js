@@ -1,13 +1,10 @@
 import { useState } from "react";
 
 export default function useCreateResources() {
-    const [resource, setResource] = useState({});
     const [loading, setLoading] = useState(false);
-    const [error, setError] = useState(null);
 
     async function fetchResource(method, url, data = null, options = {}) {
         setLoading(true);
-        setError(null);
 
         const abortController = new AbortController();
         const signal = abortController.signal;
@@ -25,16 +22,22 @@ export default function useCreateResources() {
             }
         }
 
-        await fetch(url, { ...options, signal })
-            .then(res => {
-                if (!res.ok) {
-                    throw new Error(res.status);
-                }
-                return res.json()
-            })
-            .then(setResource)
-            .catch(error => setError(error))
-            .finally(setLoading(false));
+        const response = await fetch(url, { ...options, signal });
+
+        const responseContentType = response.headers.get('Content-Type');
+        if (!responseContentType) {
+            return;
+        }
+
+        if (!response.ok) {
+            const result = await response.json();
+            throw result;
+        }
+
+        const result = await response.json();
+        setLoading(false);
+
+        return result;
     }
-    return { fetchResource, resource, loading, error };
+    return { fetchResource, loading };
 }
