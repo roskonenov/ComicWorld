@@ -5,9 +5,11 @@ import { useContext } from 'react';
 import { UserContext } from '../../../../contexts/UserContext';
 
 export default function Comment({
+    _id,
     _ownerId,
     text,
     index,
+    onDelete,
 }) {
     const { _id: userId } = useContext(UserContext);
     const isOwner = _ownerId === userId;
@@ -21,7 +23,9 @@ export default function Comment({
             {isOwner &&
                 <div className={styles['comment-buttons']}>
                     <button className={styles['edit-button']}>edit</button>
-                    <button className={styles['delete-button']}>x</button>
+                    <button 
+                    className={styles['delete-button']}
+                    onClick={() => onDelete(_id)}>x</button>
                 </div>}
         </div>
     );

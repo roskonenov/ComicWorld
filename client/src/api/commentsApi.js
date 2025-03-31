@@ -39,3 +39,23 @@ export function useCreateComment(setComents) {
     }
     return { create, loading };
 }
+
+export function useDeleteComment(setComments){
+    const { accessToken } = useContext(UserContext);
+    const { fetchResource, loading } = useCreateResources();
+
+    async function remove(commentId) {
+        const options = {
+            headers: {
+                'X-Authorization': accessToken,
+            },
+        };
+        const result = await fetchResource('DELETE', `${BaseUrl}/${commentId}`, null, options);
+        if(result._deletedOn){
+            setComments(c => c.filter(comment => comment._id !== commentId));
+        }
+        
+        return result
+    }
+    return {remove, loading};
+}
