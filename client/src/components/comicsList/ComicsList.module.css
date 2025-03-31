@@ -25,6 +25,13 @@
   backdrop-filter: blur(10px);
 }
 
+.no-comics {
+  color: #fd8750;
+  text-shadow: #421906 1.3px 1.2px 1px;
+  font-size: 28px;
+  font-weight: bold;
+}
+
 .comic-card {
   width: 180px;
   border-radius: 8px;

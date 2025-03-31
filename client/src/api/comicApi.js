@@ -45,14 +45,14 @@ export function useLatestComics(count) {
 
 export function useComicRating(ratingId) {
     const [ratingData, setRatingData] = useState({});
-    const { fetchResource } = useGetResources();
+    const { fetchResource, loading } = useGetResources();
 
     useEffect(() => {
         fetchResource(`${jsonStoreBaseUrl}/${ratingId}`)
         .then(setRatingData);
     }, [ratingId]);
 
-    return Object.values(ratingData);
+    return {ratingData, setRatingData, loading};
 }
 
 export function usePostComicRating() {

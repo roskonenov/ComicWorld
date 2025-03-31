@@ -16,6 +16,13 @@
     justify-content: space-around;
 }
 
+.no-comics {
+    color: #fd8750;
+    text-shadow: #421906 1.3px 1.2px 1px;
+    font-size: 28px;
+    font-weight: bold;
+}
+
 .cover-container {
     flex: 1 0 40%;
     gap: 20px;

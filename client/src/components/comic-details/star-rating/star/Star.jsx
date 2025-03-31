@@ -1,7 +1,6 @@
-import React from "react";
 import styles from "./Star.module.css";
 
-function Star({
+export default function Star({
     starValue,
     ratingHandler,
     selectedRating
@@ -37,5 +36,3 @@ function Star({
         </>
     );
 }
-
-export default React.memo(Star);

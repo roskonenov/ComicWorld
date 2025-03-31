@@ -16,7 +16,7 @@ export default function ComicDetails() {
     }
 
     if (!comic || Object.keys(comic).length === 0) {
-        return <div>No comic data available</div>;
+        return <div className={styles['no-comics']}>No comic data available</div>;
     }
     return (
         <>

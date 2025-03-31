@@ -2,6 +2,7 @@ import { useComicRating, usePostComicRating } from '../../../api/comicApi';
 import { useState, useEffect } from "react";
 import Star from './star/Star';
 import styles from './StarRating.module.css';
+import usePersistedState from '../../../hooks/usePersistedState';
 
 
 
@@ -11,16 +12,14 @@ export default function StarRating({
 }) {
     const [selectedRating, setSelectedRating] = useState(null);
     const [hasVoted, setHasVoted] = useState(false);
-    const [votedComicsList, setVotedComicsList] = useState(() => {
-        return JSON.parse(localStorage.getItem("votedComics")) || [];
-    });
-    const { ratingData } = useComicRating(ratingId);
+    const [votedComicsList, setVotedComicsList] = usePersistedState('votedComics', []);
+    const { ratingData, setRatingData } = useComicRating(ratingId);
 
     const rating = ratingData?.value ?? 0;
     const votes = ratingData?.votes ?? 0;
 
 
-    const { postRating, resource, loading, error } = usePostComicRating();
+    const { postRating } = usePostComicRating();
 
     useEffect(() => {
         setSelectedRating(Math.round(rating));
@@ -36,15 +35,17 @@ export default function StarRating({
         }
 
         const newVotes = votes + 1;
-        const newAverageRating = ((rating * votes) + userVote) / newVotes;
+        const newAverageRating = Number((((rating * votes) + userVote) / newVotes).toFixed(1));
 
         postRating(ratingId, newVotes, newAverageRating)
             .then(updatedRating => {
-                setSelectedRating(Math.round(updatedRating));
+                setSelectedRating(Math.round(updatedRating.value));
                 setHasVoted(true);
-                setVotedComicsList(v => [...v, comicId])
-                localStorage.setItem("votedComics", JSON.stringify(votedComicsList));
+                votedComicsList.push(comicId)
+                setVotedComicsList(votedComicsList);
+                setRatingData(updatedRating);
             });
+            alert("Your vote has been accepted and updated.");
     }
 
     return (

@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import styles from "./ComicsList.module.css";
 import Spinner from "../spinner/Spinner";
 import ComicItem from "../comic-item/ComicItem";
@@ -73,7 +73,7 @@ export default function ComicsList() {
 
             <div className={styles['comic-list']}>
                 {displayComics.length === 0
-                    ? <h1>There are no Comics to display!</h1>
+                    ? <h1 className={styles['no-comics']}>There are no Comics to display!</h1>
                     : displayComics.map((comic) => <ComicItem key={comic._id} {...comic} />)}
                 { }
             </div>

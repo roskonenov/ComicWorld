@@ -7,11 +7,11 @@ import LoginRegister from "./components/login-register/LoginRegister"
 import Logout from "./components/logout/Logout"
 
 import { Route, Routes } from "react-router"
-import { useState } from "react"
 import { UserContext } from "./contexts/UserContext"
+import usePersistedState from "./hooks/usePersistedState"
 
 function App() {
-  const [authData, setAuthData] = useState({});
+  const [authData, setAuthData] = usePersistedState('auth', {});
 
   function userLoginHandler(data) {
     setAuthData(data);

@@ -2,54 +2,54 @@ import styles from './CommentSection.module.css'
 import { useComments, useCreateComment, useDeleteComment, useEditComment } from '../../../api/commentsApi';
 import Comment from './comment/Comment';
 import Spinner from '../../spinner/Spinner';
-import { useActionState, useState } from 'react';
+import { useState } from 'react';
 
 export default function CommentSection({
     comicId,
 }) {
     const [editingComment, setEditingComment] = useState(null);
+    const [commentText, setCommentText] = useState('');
     const { comments, setComments, loading } = useComments(comicId);
     const { create } = useCreateComment(setComments);
     const { remove, pending } = useDeleteComment(setComments);
     const { edit } = useEditComment(setComments);
 
 
-    async function createCommentHandler(_, formData) {
-        if (!formData) return;
+    async function createCommentHandler(e) {
+        e.preventDefault();
 
-        const text = formData.get('add-comment');
+        if (!commentText.trim()) return;
 
         if (editingComment) {
-            await edit(editingComment._id, text);
+            await edit(editingComment._id, commentText);
             setEditingComment(null);
         } else {
-
-            await create(text, comicId);
+            await create(commentText, comicId);
         }
+        setCommentText("");
     }
 
     function editCommentHandler(commentId) {
         const comment = comments.find(c => c._id === commentId);
         setEditingComment(comment);
+        setCommentText(comment.text);
     }
 
     function cancelEditHandler() {
         setEditingComment(null);
+        setCommentText("");
     }
 
     async function deleteCommentHandler(commentId) {
         const isConfirmed = confirm("Are you sure you want to delete the message?");
-        if (!isConfirmed) {
-            return;
-        }
+        if (!isConfirmed) return;
+            
         const result = await remove(commentId);
 
         result._deletedOn
             ? alert("Your message has been deleted!")
             : !pending && alert(`${result.message}`)
     }
-
-    const [_, createCommentAction] = useActionState(createCommentHandler, { 'add-comment': '' });
 
     if (loading) {
         return <Spinner />
@@ -71,7 +71,7 @@ export default function CommentSection({
                         />)}
             </div>
             <form
-                action={createCommentAction} className={styles['add-comment-form']}>
+                onSubmit={createCommentHandler} className={styles['add-comment-form']}>
                 <textarea
                     className={styles['add-comment']}
                     name="add-comment"
@@ -79,13 +79,14 @@ export default function CommentSection({
                     rows={6}
                     cols={50}
                     required
-                    defaultValue={editingComment ? editingComment.text : ''}>
+                    value={commentText}
+                    onChange={(e) => setCommentText(e.target.value)}>
                 </textarea>
                 <label htmlFor="add-comment">
                     {editingComment ? 'Edit your comment' : 'Comment this comic'}
                 </label>
                 <button
-                    onClick={createCommentHandler}
+                    type='submit'
                     className={styles['add-comment-button']}>
                     {editingComment ? 'Save Changes' : 'Add Comment'}
                 </button>
