@@ -1,7 +1,7 @@
 import useGetResources from "../hooks/useGetResources";
 import useCreateResources from "../hooks/useCreateResources";
-import { useContext, useEffect, useRef } from "react";
-import { UserContext } from "../contexts/UserContext";
+import { useEffect, useRef } from "react";
+import { useUserContext } from "../contexts/UserContext";
 
 const baseUrl = 'http://localhost:3030/users';
 
@@ -50,7 +50,7 @@ export function useRegister() {
 export function useLogout() {
     const { fetchResource, loading } = useGetResources();
     const abortRef = useRef(new AbortController());
-    const { accessToken, userLogoutHandler } = useContext(UserContext);
+    const { accessToken, userLogoutHandler } = useUserContext();
 
     useEffect(() => {
         const abortController = abortRef.current;

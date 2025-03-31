@@ -1,10 +1,9 @@
-import { useContext } from 'react';
 import NavItem from './nav-item/NavItem';
 import styles from './Navigation.module.css';
-import { UserContext } from '../../../contexts/UserContext';
+import { useUserContext } from '../../../contexts/UserContext';
 
 export default function Navigation() {
-    const { username } = useContext(UserContext);
+    const { username } = useUserContext();
     const navItems = [
         { name: 'Home', path: '/' },
         { name: 'All Comics', path: '/catalog' },

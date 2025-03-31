@@ -7,22 +7,12 @@ import LoginRegister from "./components/login-register/LoginRegister"
 import Logout from "./components/logout/Logout"
 
 import { Route, Routes } from "react-router"
-import { UserContext } from "./contexts/UserContext"
-import usePersistedState from "./hooks/usePersistedState"
+import UserProvider from "./providers/UserProvider"
 
 function App() {
-  const [authData, setAuthData] = usePersistedState('auth', {});
-
-  function userLoginHandler(data) {
-    setAuthData(data);
-  }
-
-  function userLogoutHandler() {
-    setAuthData({});
-  }
 
   return (
-    <UserContext.Provider value={{ ...authData, userLoginHandler, userLogoutHandler }}>
+    <UserProvider >
       <BackgroundVideo />
       <Header />
       <Routes>
@@ -33,7 +23,7 @@ function App() {
         <Route path="/register" element={<LoginRegister />} />
         <Route path="/logout" element={<Logout />} />
       </Routes>
-    </UserContext.Provider>
+    </UserProvider>
   )
 }
 

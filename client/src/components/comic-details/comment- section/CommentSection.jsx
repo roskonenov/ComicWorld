@@ -2,8 +2,8 @@ import styles from './CommentSection.module.css'
 import { useComments, useCreateComment, useDeleteComment, useEditComment } from '../../../api/commentsApi';
 import Comment from './comment/Comment';
 import Spinner from '../../spinner/Spinner';
-import { useContext, useState } from 'react';
-import { UserContext } from '../../../contexts/UserContext';
+import { useState } from 'react';
+import { useUserContext } from '../../../contexts/UserContext';
 
 export default function CommentSection({
     comicId,
@@ -14,7 +14,7 @@ export default function CommentSection({
     const { create } = useCreateComment(setComments);
     const { remove, pending } = useDeleteComment(setComments);
     const { edit } = useEditComment(setComments);
-    const { accessToken } = useContext(UserContext);
+    const { accessToken } = useUserContext();
 
 
     async function createCommentHandler(e) {

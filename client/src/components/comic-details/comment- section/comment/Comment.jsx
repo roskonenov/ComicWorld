@@ -1,8 +1,7 @@
 import styles from './Comment.module.css'
 import background0 from '../../../../assets/bubble-templates/comment-background.png';
 import background1 from '../../../../assets/bubble-templates/yelow-bubble.png';
-import { useContext } from 'react';
-import { UserContext } from '../../../../contexts/UserContext';
+import { useUserContext } from '../../../../contexts/UserContext';
 
 export default function Comment({
     _id,
@@ -12,7 +11,7 @@ export default function Comment({
     onEdit,
     onDelete,
 }) {
-    const { _id: userId } = useContext(UserContext);
+    const { _id: userId } = useUserContext();
     const isOwner = _ownerId === userId;
     return (
         <div className={styles[`comment-container-${index % 2 === 0 ? 'even' : 'odd'}`]}>

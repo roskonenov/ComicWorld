@@ -1,8 +1,8 @@
 import { useLocation, useNavigate } from 'react-router';
 import styles from './LoginRegister.module.css';
-import { useActionState, useContext, useEffect, useState } from 'react';
+import { useActionState, useEffect, useState } from 'react';
 import { useLogin, useRegister } from '../../api/authenticationApi';
-import { UserContext } from '../../contexts/UserContext';
+import { useUserContext } from '../../contexts/UserContext';
 
 export default function LoginRegister() {
 
@@ -11,7 +11,7 @@ export default function LoginRegister() {
     const [isChecked, setIsChecked] = useState(false);
     const { login } = useLogin();
     const { register } = useRegister();
-    const { userLoginHandler } = useContext(UserContext);
+    const { userLoginHandler } = useUserContext();
 
     useEffect(() => {
         setIsChecked(location === '/login');
