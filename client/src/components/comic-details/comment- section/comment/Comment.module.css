@@ -20,7 +20,7 @@
 
     .username {
         font-weight: 600;
-        font-size: 35px;
+        font-size: 1.5vw;
         padding: 15px 35px 0 65px;
 
         text-shadow: 1.5px 1.5px grey;
@@ -29,7 +29,7 @@
     .comment-text {
         height: 100%;
         font-weight: 400;
-        font-size: 28px;
+        font-size: 1.2vw;
         padding: 0 35px 8px 35px;
         text-shadow: 1.5px 1.2px grey;
         text-align: center;
@@ -60,7 +60,7 @@
 
     .username {
         font-weight: 600;
-        font-size: 35px;
+        font-size: 1.5vw;
         margin-left: -10px;
         text-shadow: 1.5px 1.5px grey;
     }
@@ -68,10 +68,68 @@
     .comment-text {
         height: 100%;
         font-weight: 400;
-        font-size: 28px;
+        font-size: 1.2vw;
         /* padding: 15px 180px 15px 85px;
         margin: 0 45px 0 -100px; */
         text-align: center;
         text-shadow: 1.5px 1.2px rgb(82, 81, 81);
     }
 }
+
+.comment-buttons {
+    position: absolute;
+    top: 6%;
+    right: 2vw;
+    display: flex;
+    gap: 5px;
+}
+
+.comment-container-odd .comment-buttons{
+    right: 1vw;
+}
+
+.comment-container-even .comment-buttons{
+    top: 8%
+}
+
+.edit-button,
+.delete-button {
+    border: 0.5px solid;
+    cursor: pointer;
+    padding: 0;
+    width: 1.5vw;
+    border-radius: 5px;
+    color: whitesmoke;
+    text-shadow: 0.5px 1px rgb(56, 55, 58);
+    font-size: 0.7vw;
+    font-weight: 100;
+    letter-spacing: 0.5px;
+    box-shadow: 3px 5px 5px 0px rgba(0, 0, 0, 0.6);
+    transition: all 0.28s ease;
+    opacity: 0.3;
+}
+
+.delete-button:hover,
+.edit-button:hover {
+    text-shadow: 0 0 10px var(--yelow), 0 0 20px var(--yelow), 0 0 30px var(--yelow);
+    opacity: 1;
+}
+
+.delete-button:active,
+.edit-button:active {
+    text-shadow: 0 0 10px var(--yelow), 0 0 20px var(--yelow), 0 0 30px var(--yelow);
+    box-shadow: none;
+    opacity: 1;
+}
+
+
+.edit-button {
+    background: rgb(44, 157, 40);
+    border-color: #1b6e18;
+}
+
+.delete-button {
+    background: rgb(213, 53, 64);
+    border-color: #f53737;
+}
+

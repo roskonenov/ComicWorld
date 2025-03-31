@@ -9,8 +9,6 @@ export function useComments(comicId) {
     const [comments, setComments] = useState([]);
     const { fetchResource, loading } = useGetResources();
 
-    
-
     useEffect(() => {
         const searchParams = new URLSearchParams({
             where: `comicId="${comicId}"`
@@ -34,7 +32,7 @@ export function useCreateComment(setComents) {
             },
         };
         const result = await fetchResource('POST', BaseUrl, { text, comicId }, options);
-        if(result) {
+        if (result) {
             setComents(c => [...c, result]);
         }
         return result;
