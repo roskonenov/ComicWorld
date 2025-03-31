@@ -1645,7 +1645,7 @@
         ],
         comments: [
             {
-                "_ownerId": "07e03ede-3b8a-4c9d-9dfc-719903f6f22d",
+                "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
                 "text": "Absolutely loved the artwork in this one! The colors and details were stunning.",
                 "comicId": "0",
                 "_createdOn": 1743355937311,
@@ -1666,49 +1666,49 @@
                 "_id": "3c04d5a7-d35a-4f50-aa10-03ebe487e314"
             },
             {
-                "_ownerId": "07e03ede-3b8a-4c9d-9dfc-719903f6f22d",
+                "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
                 "text": "This comic is a masterpiece. The storytelling is top-tier, and the pacing is perfect!",
                 "comicId": "2",
                 "_createdOn": 1743355937314,
                 "_id": "3c04d5a7-d35a-4f50-aa10-03ebe487e314"
             },
             {
-                "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
+                "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
                 "text": "Not my cup of tea, but I can appreciate the effort put into the world-building.",
                 "comicId": "2",
                 "_createdOn": 1743355937315,
                 "_id": "3c04d5a7-d35a-4f50-aa10-03ebe487e314"
             },
             {
-                "_ownerId": "07e03ede-3b8a-4c9d-9dfc-719903f6f22d",
+                "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
                 "text": "The dialogue felt a little forced at times, but overall, it was a fun ride!",
                 "comicId": "3",
                 "_createdOn": 1743355937316,
                 "_id": "3c04d5a7-d35a-4f50-aa10-03ebe487e314"
             },
             {
-                "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
+                "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
                 "text": "I couldn’t put this down! The action sequences were so well done.",
                 "comicId": "1",
                 "_createdOn": 1743355937317,
                 "_id": "3c04d5a7-d35a-4f50-aa10-03ebe487e314"
             },
             {
-                "_ownerId": "035c62d76-8152-4626-8712-eeb96381bea8",
+                "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
                 "text": "The ending left me with so many questions—I need the next issue ASAP!",
                 "comicId": "4",
                 "_createdOn": 1743355937318,
                 "_id": "3c04d5a7-d35a-4f50-aa10-03ebe487e314"
             },
             {
-                "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
+                "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
                 "text": "Great mix of humor and drama. Definitely adding this to my collection.",
                 "comicId": "4",
                 "_createdOn": 1743355937319,
                 "_id": "3c04d5a7-d35a-4f50-aa10-03ebe487e314"
             },
             {
-                "_ownerId": "07e03ede-3b8a-4c9d-9dfc-719903f6f22d",
+                "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
                 "text": "The villain in this story is so well-written, I almost started rooting for them!",
                 "comicId": "5",
                 "_createdOn": 1743355937321,

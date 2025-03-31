@@ -6,6 +6,7 @@ import { useUserContext } from '../../../../contexts/UserContext';
 export default function Comment({
     _id,
     _ownerId,
+    author,
     text,
     index,
     onEdit,
@@ -18,18 +19,18 @@ export default function Comment({
             <div className={styles['comment-background']}>
                 <img src={index % 2 === 0 ? background0 : background1} alt="" />
             </div>
-            <p className={styles['username']}>{_ownerId}</p>
+            <p className={styles['username']}>{author.username}</p>
             <p className={styles['comment-text']}>{text}</p>
             {isOwner &&
                 <div className={styles['comment-buttons']}>
 
                     <button
                         className={styles['edit-button']}
-                        onClick={() => onEdit(_id)}><a href='#add-comment'>edit</a></button>
+                        onClick={() => onEdit(_id)}><a href='#add-comment'>Edit</a></button>
 
                     <button
                         className={styles['delete-button']}
-                        onClick={() => onDelete(_id)}>x</button>
+                        onClick={() => onDelete(_id)}>Del</button>
                 </div>}
         </div>
     );

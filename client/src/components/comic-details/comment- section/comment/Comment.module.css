@@ -100,6 +100,7 @@
 
 .edit-button,
 .delete-button {
+    flex-basis: 50%;
     border: 0.5px solid;
     cursor: pointer;
     padding: 0;
