@@ -8,6 +8,8 @@ import Logout from "./components/logout/Logout"
 
 import { Route, Routes } from "react-router"
 import UserProvider from "./providers/UserProvider"
+import AuthGuard from "./components/guards/AuthenticationGuard"
+import GuestGuard from "./components/guards/GuestGuard"
 
 function App() {
 
@@ -18,10 +20,14 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/catalog" element={<ComicsList />} />
+        <Route element={<AuthGuard />}>
+          <Route path="/logout" element={<Logout />} />
+        </Route>
+        <Route element={<GuestGuard />}>
+          <Route path="/login" element={<LoginRegister />} />
+          <Route path="/register" element={<LoginRegister />} />
+        </Route>
         <Route path="/catalog/:comicId" element={<ComicDetails />} />
-        <Route path="/login" element={<LoginRegister />} />
-        <Route path="/register" element={<LoginRegister />} />
-        <Route path="/logout" element={<Logout />} />
       </Routes>
     </UserProvider>
   )
