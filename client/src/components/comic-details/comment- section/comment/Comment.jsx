@@ -9,6 +9,7 @@ export default function Comment({
     _ownerId,
     text,
     index,
+    onEdit,
     onDelete,
 }) {
     const { _id: userId } = useContext(UserContext);
@@ -22,10 +23,14 @@ export default function Comment({
             <p className={styles['comment-text']}>{text}</p>
             {isOwner &&
                 <div className={styles['comment-buttons']}>
-                    <button className={styles['edit-button']}>edit</button>
-                    <button 
-                    className={styles['delete-button']}
-                    onClick={() => onDelete(_id)}>x</button>
+
+                    <button
+                        className={styles['edit-button']}
+                        onClick={() => onEdit(_id)}><a href='#add-comment'>edit</a></button>
+
+                    <button
+                        className={styles['delete-button']}
+                        onClick={() => onDelete(_id)}>x</button>
                 </div>}
         </div>
     );

@@ -93,7 +93,8 @@
     line-height: 1em;
 }
 
-.add-comment-button {
+.add-comment-button,
+.cancel-button {
     background: var(--magenta);
     border: 1.3px solid #8d578a;
     cursor: pointer;
@@ -110,11 +111,18 @@
     transition: all 0.15s ease;
 }
 
-.add-comment-button:hover {
+.cancel-button {
+    background: rgb(213, 53, 64);
+    border-color: #f53737;
+}
+
+.add-comment-button:hover,
+.cancel-button:hover {
     text-shadow: 0 0 10px var(--yelow), 0 0 20px var(--yelow), 0 0 30px var(--yelow);
 }
 
-.add-comment-button:active {
+.add-comment-button:active,
+.cancel-button:active {
     text-shadow: 0 0 10px var(--yelow), 0 0 20px var(--yelow), 0 0 30px var(--yelow);
     box-shadow: none;
 }

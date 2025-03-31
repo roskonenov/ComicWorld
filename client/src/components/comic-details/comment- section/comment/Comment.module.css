@@ -84,6 +84,12 @@
     gap: 5px;
 }
 
+.edit-button a {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
 .comment-container-odd .comment-buttons{
     right: 1vw;
 }
@@ -124,6 +130,8 @@
 
 
 .edit-button {
+    width: 100%;
+    height: 100%;
     background: rgb(44, 157, 40);
     border-color: #1b6e18;
 }

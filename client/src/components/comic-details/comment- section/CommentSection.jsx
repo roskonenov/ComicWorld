@@ -1,40 +1,55 @@
 import styles from './CommentSection.module.css'
-import { useComments, useCreateComment, useDeleteComment } from '../../../api/commentsApi';
+import { useComments, useCreateComment, useDeleteComment, useEditComment } from '../../../api/commentsApi';
 import Comment from './comment/Comment';
 import Spinner from '../../spinner/Spinner';
-import { useActionState } from 'react';
+import { useActionState, useState } from 'react';
 
 export default function CommentSection({
     comicId,
 }) {
+    const [editingComment, setEditingComment] = useState(null);
     const { comments, setComments, loading } = useComments(comicId);
     const { create } = useCreateComment(setComments);
     const { remove, pending } = useDeleteComment(setComments);
+    const { edit } = useEditComment(setComments);
 
 
     async function createCommentHandler(_, formData) {
-        if(!formData) return;
+        if (!formData) return;
 
         const text = formData.get('add-comment');
 
-        await create(text, comicId);
+        if (editingComment) {
+            await edit(editingComment._id, text);
+            setEditingComment(null);
+        } else {
+
+            await create(text, comicId);
+        }
+    }
+
+    function editCommentHandler(commentId) {
+        const comment = comments.find(c => c._id === commentId);
+        setEditingComment(comment);
+    }
+
+    function cancelEditHandler() {
+        setEditingComment(null);
     }
 
     async function deleteCommentHandler(commentId) {
         const isConfirmed = confirm("Are you sure you want to delete the message?");
-        if(!isConfirmed){
+        if (!isConfirmed) {
             return;
         }
-
         const result = await remove(commentId);
 
-        result._deletedOn 
-           ? alert("Your message has been deleted!") 
-           : !pending && alert(`${result.message}`)
-        
+        result._deletedOn
+            ? alert("Your message has been deleted!")
+            : !pending && alert(`${result.message}`)
     }
 
-    const [_, commentAction] = useActionState(createCommentHandler, { comicId: '', text: '' });
+    const [_, createCommentAction] = useActionState(createCommentHandler, { 'add-comment': '' });
 
     if (loading) {
         return <Spinner />
@@ -52,12 +67,33 @@ export default function CommentSection({
                             {...comment}
                             index={i}
                             onDelete={deleteCommentHandler}
+                            onEdit={editCommentHandler}
                         />)}
             </div>
-            <form action={commentAction} className={styles['add-comment-form']}>
-                <textarea className={styles['add-comment']} name="add-comment" id="add-comment" rows={6} cols={50} required></textarea>
-                <label htmlFor="add-comment">Comment this comic</label>
-                <button onClick={createCommentHandler} className={styles['add-comment-button']}>Add comment</button>
+            <form
+                action={createCommentAction} className={styles['add-comment-form']}>
+                <textarea
+                    className={styles['add-comment']}
+                    name="add-comment"
+                    id="add-comment"
+                    rows={6}
+                    cols={50}
+                    required
+                    defaultValue={editingComment ? editingComment.text : ''}>
+                </textarea>
+                <label htmlFor="add-comment">
+                    {editingComment ? 'Edit your comment' : 'Comment this comic'}
+                </label>
+                <button
+                    onClick={createCommentHandler}
+                    className={styles['add-comment-button']}>
+                    {editingComment ? 'Save Changes' : 'Add Comment'}
+                </button>
+                {editingComment && (
+                    <button className={styles['cancel-button']} onClick={cancelEditHandler}>
+                        Cancel
+                    </button>
+                )}
             </form>
         </section>
     );

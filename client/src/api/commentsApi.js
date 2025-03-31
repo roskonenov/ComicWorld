@@ -59,3 +59,26 @@ export function useDeleteComment(setComments){
     }
     return {remove, loading};
 }
+
+export function useEditComment(setComments) {
+    const { accessToken } = useContext(UserContext);
+    const { fetchResource, loading } = useCreateResources();
+
+    const options = {
+        headers: {
+            'X-Authorization': accessToken,
+        },
+    };
+
+    async function edit(commentId, text) {
+        const result = await fetchResource('PATCH', `${BaseUrl}/${commentId}`, {text}, options );
+
+        console.log(result);
+        
+        if(result) {
+            setComments(prev => prev.map(c => c._id === commentId ? result : c));
+        }
+        return result;
+    }
+    return {edit, loading}; 
+}
