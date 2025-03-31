@@ -1,7 +1,6 @@
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import useGetResources from "../hooks/useGetResources";
 import useCreateResources from "../hooks/useCreateResources";
-import { UserContext } from "../contexts/UserContext";
 
 const BaseUrl = 'http://localhost:3030/data/comments';
 
@@ -22,16 +21,11 @@ export function useComments(comicId) {
 }
 
 export function useCreateComment(setComents) {
-    const { accessToken } = useContext(UserContext);
     const { fetchResource, loading } = useCreateResources();
 
     async function create(text, comicId) {
-        const options = {
-            headers: {
-                'X-Authorization': accessToken,
-            },
-        };
-        const result = await fetchResource('POST', BaseUrl, { text, comicId }, options);
+        
+        const result = await fetchResource('POST', BaseUrl, { text, comicId });
         if (result) {
             setComents(c => [...c, result]);
         }
@@ -41,40 +35,25 @@ export function useCreateComment(setComents) {
 }
 
 export function useDeleteComment(setComments){
-    const { accessToken } = useContext(UserContext);
     const { fetchResource, loading } = useCreateResources();
 
     async function remove(commentId) {
-        const options = {
-            headers: {
-                'X-Authorization': accessToken,
-            },
-        };
-        const result = await fetchResource('DELETE', `${BaseUrl}/${commentId}`, null, options);
+        
+        const result = await fetchResource('DELETE', `${BaseUrl}/${commentId}`);
         if(result._deletedOn){
             setComments(c => c.filter(comment => comment._id !== commentId));
         }
-        
         return result
     }
     return {remove, loading};
 }
 
 export function useEditComment(setComments) {
-    const { accessToken } = useContext(UserContext);
     const { fetchResource, loading } = useCreateResources();
 
-    const options = {
-        headers: {
-            'X-Authorization': accessToken,
-        },
-    };
-
     async function edit(commentId, text) {
-        const result = await fetchResource('PATCH', `${BaseUrl}/${commentId}`, {text}, options );
+        const result = await fetchResource('PATCH', `${BaseUrl}/${commentId}`, {text} );
 
-        console.log(result);
-        
         if(result) {
             setComments(prev => prev.map(c => c._id === commentId ? result : c));
         }

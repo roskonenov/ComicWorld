@@ -2,7 +2,8 @@ import styles from './CommentSection.module.css'
 import { useComments, useCreateComment, useDeleteComment, useEditComment } from '../../../api/commentsApi';
 import Comment from './comment/Comment';
 import Spinner from '../../spinner/Spinner';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import { UserContext } from '../../../contexts/UserContext';
 
 export default function CommentSection({
     comicId,
@@ -13,6 +14,7 @@ export default function CommentSection({
     const { create } = useCreateComment(setComments);
     const { remove, pending } = useDeleteComment(setComments);
     const { edit } = useEditComment(setComments);
+    const { accessToken } = useContext(UserContext);
 
 
     async function createCommentHandler(e) {
@@ -43,7 +45,7 @@ export default function CommentSection({
     async function deleteCommentHandler(commentId) {
         const isConfirmed = confirm("Are you sure you want to delete the message?");
         if (!isConfirmed) return;
-            
+
         const result = await remove(commentId);
 
         result._deletedOn
@@ -70,32 +72,34 @@ export default function CommentSection({
                             onEdit={editCommentHandler}
                         />)}
             </div>
-            <form
-                onSubmit={createCommentHandler} className={styles['add-comment-form']}>
-                <textarea
-                    className={styles['add-comment']}
-                    name="add-comment"
-                    id="add-comment"
-                    rows={6}
-                    cols={50}
-                    required
-                    value={commentText}
-                    onChange={(e) => setCommentText(e.target.value)}>
-                </textarea>
-                <label htmlFor="add-comment">
-                    {editingComment ? 'Edit your comment' : 'Comment this comic'}
-                </label>
-                <button
-                    type='submit'
-                    className={styles['add-comment-button']}>
-                    {editingComment ? 'Save Changes' : 'Add Comment'}
-                </button>
-                {editingComment && (
-                    <button className={styles['cancel-button']} onClick={cancelEditHandler}>
-                        Cancel
+            {accessToken
+                ? <form
+                    onSubmit={createCommentHandler} className={styles['add-comment-form']}>
+                    <textarea
+                        className={styles['add-comment']}
+                        name="add-comment"
+                        id="add-comment"
+                        rows={6}
+                        cols={50}
+                        required
+                        value={commentText}
+                        onChange={(e) => setCommentText(e.target.value)}>
+                    </textarea>
+                    <label htmlFor="add-comment">
+                        {editingComment ? 'Edit your comment' : 'Comment this comic'}
+                    </label>
+                    <button
+                        type='submit'
+                        className={styles['add-comment-button']}>
+                        {editingComment ? 'Save Changes' : 'Add Comment'}
                     </button>
-                )}
-            </form>
+                    {editingComment && (
+                        <button className={styles['cancel-button']} onClick={cancelEditHandler}>
+                            Cancel
+                        </button>
+                    )}
+                </form>
+                : <h3 className={styles['not-logged']}>You must be logged in to post comments.</h3>}
         </section>
     );
 }

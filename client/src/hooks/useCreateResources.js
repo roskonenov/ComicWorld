@@ -7,17 +7,29 @@ export default function useCreateResources() {
 
         options.method = method;
 
+        const authData = JSON.parse(localStorage.getItem('auth'));
+
+        if (authData?.accessToken && !url.includes('jsonstore')) {
+            options = {
+                ...options,
+                headers: {
+                    'X-Authorization': authData.accessToken,
+                    ...options.headers,
+                },
+            }
+        }
+
         if (data) {
             options = {
                 ...options,
                 headers: {
                     'Content-Type': 'application/json',
-                    ...options.headers
+                    ...options.headers,
                 },
                 body: JSON.stringify(data),
             }
         };
-        
+
         const response = await fetch(url, options);
 
         const responseContentType = response.headers.get('Content-Type');

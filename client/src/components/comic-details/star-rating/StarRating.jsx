@@ -45,7 +45,7 @@ export default function StarRating({
                 setVotedComicsList(votedComicsList);
                 setRatingData(updatedRating);
             });
-            alert("Your vote has been accepted and updated.");
+            alert("Your vote has been accepted.");
     }
 
     return (

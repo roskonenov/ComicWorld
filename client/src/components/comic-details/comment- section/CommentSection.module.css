@@ -26,7 +26,8 @@
     line-height: 0.8;
 }
 
-.no-comments {
+.no-comments,
+.not-logged {
     color: #fd8750;
     text-shadow: #421906 1.3px 1.2px 1px;
     font-size: 28px;
