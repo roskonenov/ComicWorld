@@ -4,12 +4,14 @@ import styles from './ComicDetails.module.css';
 import { useParams } from 'react-router';
 import StarRating from './star-rating/StarRating';
 import CommentSection from './comment- section/CommentSection';
+import { useUserContext } from '../../contexts/UserContext';
 
 export default function ComicDetails() {
     const { comicId } = useParams();
     const [loading, comic] = useComic(comicId);
+    const { username } = useUserContext();
 
-
+    const isAdmin = username === 'Admin';
 
     if (loading) {
         return <Spinner />;
@@ -37,14 +39,18 @@ export default function ComicDetails() {
                             {comic.oldPrice && <span>{`$${comic.oldPrice}`}</span>}
                             {`$${comic.currentPrice}`}</div>
                         <div className={styles.buttons}>
-                            <button className={styles.delete}>Delete</button>
-                            <button className={styles.edit}>Edit</button>
+                            {isAdmin &&
+                                <>
+                                    <button className={styles.delete}>Delete</button>
+                                    <button className={styles.edit}>Edit</button>
+                                </>
+                            }
                             <button className={styles.buy}>Buy</button>
                         </div>
                     </div>
                 </div>
             </section>
-            <CommentSection comicId={comicId}/>
+            <CommentSection comicId={comicId} />
         </>
     );
 }

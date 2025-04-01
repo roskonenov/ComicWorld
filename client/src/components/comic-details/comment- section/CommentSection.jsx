@@ -17,8 +17,7 @@ export default function CommentSection({
     const { accessToken } = useUserContext();
 
 
-    async function createCommentHandler(e) {
-        e.preventDefault();
+    async function createCommentHandler() {
 
         if (!commentText.trim()) return;
 
@@ -74,7 +73,7 @@ export default function CommentSection({
             </div>
             {accessToken
                 ? <form
-                    onSubmit={createCommentHandler} className={styles['add-comment-form']}>
+                    action={createCommentHandler} className={styles['add-comment-form']}>
                     <textarea
                         className={styles['add-comment']}
                         name="add-comment"

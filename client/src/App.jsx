@@ -10,6 +10,7 @@ import { Route, Routes } from "react-router"
 import UserProvider from "./providers/UserProvider"
 import AuthGuard from "./components/guards/AuthenticationGuard"
 import GuestGuard from "./components/guards/GuestGuard"
+import ErrorBoundry from "./components/error-boundary/ErrorBoundary"
 
 function App() {
 
@@ -17,18 +18,20 @@ function App() {
     <UserProvider >
       <BackgroundVideo />
       <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/catalog" element={<ComicsList />} />
-        <Route element={<AuthGuard />}>
-          <Route path="/logout" element={<Logout />} />
-        </Route>
-        <Route element={<GuestGuard />}>
-          <Route path="/login" element={<LoginRegister />} />
-          <Route path="/register" element={<LoginRegister />} />
-        </Route>
-        <Route path="/catalog/:comicId" element={<ComicDetails />} />
-      </Routes>
+      <ErrorBoundry>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/catalog" element={<ComicsList />} />
+          <Route element={<AuthGuard />}>
+            <Route path="/logout" element={<Logout />} />
+          </Route>
+          <Route element={<GuestGuard />}>
+            <Route path="/login" element={<LoginRegister />} />
+            <Route path="/register" element={<LoginRegister />} />
+          </Route>
+          <Route path="/catalog/:comicId" element={<ComicDetails />} />
+        </Routes>
+      </ErrorBoundry>
     </UserProvider>
   )
 }
