@@ -20,6 +20,7 @@ export default function Navigation() {
             <ul className={styles.list}>
                 {navItems.filter(item => item.auth === undefined || item.auth === !!username)
                 .map(item => <NavItem key={item.name} item={item} />)}
+                <p className={styles.greetings}>Hello: {username? username : 'Guest'}</p>
             </ul>
         </nav>
     );

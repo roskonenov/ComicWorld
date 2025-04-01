@@ -14,7 +14,7 @@ export default function Section({
             </div>
             <div className={styles['list-container']}>
                 <ul className={styles.list}>
-                    {comics.map(comic => <ComicItem key={comic._id} {...comic} />)}
+                    {comics.map(comic => <ComicItem key={comic._id} comic={comic} />)}
                 </ul>
             </div>
         </section>

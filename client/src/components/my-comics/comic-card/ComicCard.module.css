@@ -1,0 +1,84 @@
+.comic-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 15vw;
+    padding: 0.8vw;
+    border: 1.5px solid rgb(244, 197, 79);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    background-color: var(--yelow);
+    text-align: center;
+    
+  }
+  
+  .comic-cover:hover {
+    transform: scale(1.05);
+  }
+  
+  .comic-cover {
+    width: 100%;
+    flex: 0 1 65%;
+	max-height: 65%;
+    border-radius: 2.5px;
+    overflow: hidden;
+	box-shadow: 0 5px 20px 3px var(--black);
+	object-fit: cover;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .comic-cover img {
+    width: 100%;
+    height: 100%;
+    
+  }
+
+  .comic-info {
+    flex: 1 0 35%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+  }
+  
+  .comic-title {
+    padding: 10px;
+    color: var(--orange);
+    text-shadow: #421906 2.5px 1.5px 2px;
+    font-size: 1.3vw;
+    font-weight: bold;
+  }
+
+  .comic-slogan {
+    color: grey;
+    text-shadow: var(--black) 1.5px 1px 1px;
+    font-size: 1vw;
+    font-weight: bold;
+  }
+
+  .read-btn {
+    background: var(--magenta);
+    border: 1.3px solid;
+    border-color: #8d578a;
+    cursor: pointer;
+    padding: 8px 6px;
+    width: 100%;
+    border-radius: 8px;
+    color: whitesmoke;
+    text-transform: uppercase;
+    text-shadow: 1.5px 2px rgb(56, 55, 58);
+    font-weight: bold;
+    letter-spacing: 1.6px;
+    box-shadow: 0px 2px 25px 5px rgba(116, 115, 119, 0.761);
+    transition: all 0.15s ease;
+  }
+
+  .read-btn:hover {
+    text-shadow: 0 0 10px var(--yelow), 0 0 20px var(--yelow), 0 0 30px var(--yelow);
+}
+
+.read-btn:active {
+    text-shadow: 0 0 10px var(--yelow), 0 0 20px var(--yelow), 0 0 30px var(--yelow);
+    box-shadow: none;
+}

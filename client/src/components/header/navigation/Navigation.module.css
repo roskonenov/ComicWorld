@@ -10,6 +10,19 @@
     justify-content: space-between;
 }
 
+.greetings {
+    position: absolute;
+    top: 8vh;
+    right: 2vw;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--blue);
+    background-color: rgba(255, 187, 0, 0.535);
+    text-shadow: 1.2px 1px var(--black);
+    letter-spacing: 1px;
+    
+}
+
 @media screen and (max-width: 1080px) {
 
     .list {

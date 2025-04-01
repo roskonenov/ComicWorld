@@ -74,7 +74,7 @@ export default function ComicsList() {
             <div className={styles['comic-list']}>
                 {displayComics.length === 0
                     ? <h1 className={styles['no-comics']}>There are no Comics to display!</h1>
-                    : displayComics.map((comic) => <ComicItem key={comic._id} {...comic} />)}
+                    : displayComics.map((comic) => <ComicItem key={comic._id} comic={comic} />)}
                 { }
             </div>
 
