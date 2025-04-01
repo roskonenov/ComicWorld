@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import Star from './star/Star';
 import styles from './StarRating.module.css';
 import usePersistedState from '../../../hooks/usePersistedState';
+import { toast } from 'react-toastify';
 
 
 
@@ -30,7 +31,7 @@ export default function StarRating({
 
     function ratingHandler(userVote) {
         if (hasVoted) {
-            alert("You have already voted for the comic! You cannot vote again.");
+           toast.warn("You have already voted for the comic! You cannot vote again.");
             return;
         }
 
@@ -45,7 +46,7 @@ export default function StarRating({
                 setVotedComicsList(votedComicsList);
                 setRatingData(updatedRating);
             });
-            alert("Your vote has been accepted.");
+            toast.success("Your vote has been accepted.");
     }
 
     return (

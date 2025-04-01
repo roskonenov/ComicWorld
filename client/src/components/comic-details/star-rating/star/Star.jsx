@@ -25,7 +25,7 @@ export default function Star({
                 name="stars"
                 id={`st${starValue}`}
                 checked={selectedRating === starValue}
-                onChange={() => ratingHandler(starValue)}
+                onClick={() => ratingHandler(starValue)}
             />
             <label className={styles['star-label']} htmlFor={`st${starValue}`}>
                 <div className={styles['star-stroke']}>

@@ -5,12 +5,14 @@ import ComicsList from "./components/comicsList/ComicsList"
 import ComicDetails from "./components/comic-details/ComicDetails"
 import LoginRegister from "./components/login-register/LoginRegister"
 import Logout from "./components/logout/Logout"
-
-import { Route, Routes } from "react-router"
 import UserProvider from "./providers/UserProvider"
 import AuthGuard from "./components/guards/AuthenticationGuard"
 import GuestGuard from "./components/guards/GuestGuard"
 import ErrorBoundry from "./components/error-boundary/ErrorBoundary"
+
+import { Route, Routes } from "react-router"
+import { ToastContainer } from 'react-toastify';
+
 
 function App() {
 
@@ -31,6 +33,7 @@ function App() {
           </Route>
           <Route path="/catalog/:comicId" element={<ComicDetails />} />
         </Routes>
+        <ToastContainer position='top-right' />
       </ErrorBoundry>
     </UserProvider>
   )

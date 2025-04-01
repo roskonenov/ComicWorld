@@ -4,6 +4,7 @@ import Comment from './comment/Comment';
 import Spinner from '../../spinner/Spinner';
 import { useState } from 'react';
 import { useUserContext } from '../../../contexts/UserContext';
+import { toast } from 'react-toastify';
 
 export default function CommentSection({
     comicId,
@@ -12,7 +13,7 @@ export default function CommentSection({
     const [commentText, setCommentText] = useState('');
     const { comments, setComments, loading } = useComments(comicId);
     const { create } = useCreateComment(setComments);
-    const { remove, pending } = useDeleteComment(setComments);
+    const { remove } = useDeleteComment(setComments);
     const { edit } = useEditComment(setComments);
     const { accessToken } = useUserContext();
 
@@ -22,10 +23,16 @@ export default function CommentSection({
         if (!commentText.trim()) return;
 
         if (editingComment) {
-            await edit(editingComment._id, commentText);
-            setEditingComment(null);
+            await edit(editingComment._id, commentText)
+                .then(() => {
+                    setEditingComment(null);
+                    toast.success('Message edited')
+                })
+                .catch(err => toast.error(err.message));
         } else {
-            await create(commentText, comicId);
+            await create(commentText, comicId)
+                .then(() => toast.success('Message posted'))
+                .catch(err => toast.error(err.message));
         }
         setCommentText("");
     }
@@ -42,14 +49,12 @@ export default function CommentSection({
     }
 
     async function deleteCommentHandler(commentId) {
-        const isConfirmed = confirm("Are you sure you want to delete the message?");
+        const isConfirmed = confirm('Are you sure you want to delete the message?');
         if (!isConfirmed) return;
 
-        const result = await remove(commentId);
-
-        result._deletedOn
-            ? alert("Your message has been deleted!")
-            : !pending && alert(`${result.message}`)
+        await remove(commentId)
+            .then(() => toast.success("Your message has been deleted!"))
+            .catch(err => toast.error(err.message));
     }
 
     if (loading) {

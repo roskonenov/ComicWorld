@@ -2,6 +2,7 @@ import useGetResources from "../hooks/useGetResources";
 import useCreateResources from "../hooks/useCreateResources";
 import { useEffect, useRef } from "react";
 import { useUserContext } from "../contexts/UserContext";
+import { toast } from "react-toastify";
 
 const baseUrl = 'http://localhost:3030/users';
 
@@ -62,7 +63,10 @@ export function useLogout() {
         };
 
         fetchResource(`${baseUrl}/logout`, options)
-            .then(userLogoutHandler);
+            .then(() => {
+                userLogoutHandler();
+                toast.success('You have been logged out');
+            });
 
         return () => abortController.abort();
     }, [accessToken, userLogoutHandler]);

@@ -3,6 +3,7 @@ import styles from './LoginRegister.module.css';
 import { useActionState, useEffect, useState } from 'react';
 import { useLogin, useRegister } from '../../api/authenticationApi';
 import { useUserContext } from '../../contexts/UserContext';
+import { toast } from 'react-toastify';
 
 export default function LoginRegister() {
 
@@ -23,27 +24,37 @@ export default function LoginRegister() {
     }
 
     async function loginHandler(_, formData) {
-        const {email, password} = Object.fromEntries(formData);
-        const authenticationData = await login(email, password);
-        userLoginHandler(authenticationData);
-        navigate(-1);
+        const { email, password } = Object.fromEntries(formData);
+        await login(email, password)
+            .then(authData => {
+                userLoginHandler(authData);
+                toast.success('Successful login');
+                navigate(-1);
+            })
+            .catch(err => toast.error(err.message));
     }
 
     async function registerHandler(_, formData) {
-        const {username, email, password, repeatPassword} = Object.fromEntries(formData);
+        const { username, email, password, repeatPassword } = Object.fromEntries(formData);
 
-        if(password !== repeatPassword){
-            return;
+        if (password !== repeatPassword) {
+            return toast.error('Passwords must be equal')
         }
 
-        const authData = await register(username, email, password);
-        userLoginHandler(authData);
-        navigate('/');
+        await register(username, email, password)
+            .then(authData => {
+                userLoginHandler(authData);
+                toast.success('Success! Welcome a board');
+                navigate('/');
+
+            })
+            .catch(err => toast.error(err.message));
+
     }
 
     const [_A, loginAction, isPendingLogin] = useActionState(loginHandler, { email: '', password: '' });
 
-    const [_B, registerAction, isPendingRegister] = useActionState(registerHandler, {username: '', email: '', password: '', repeatPassword: ''});
+    const [_B, registerAction, isPendingRegister] = useActionState(registerHandler, { username: '', email: '', password: '', repeatPassword: '' });
 
 
     return (
