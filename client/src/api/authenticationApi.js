@@ -17,7 +17,7 @@ export function useLogin() {
     }, []);
 
     async function login(email, password) {
-        return fetchResource(
+        return await fetchResource(
             'POST',
             `${baseUrl}/login`,
             { email, password },
@@ -38,7 +38,8 @@ export function useRegister() {
     }, []);
 
     async function register(username, email, password) {
-        return fetchResource(
+
+        return await fetchResource(
             'POST',
             `${baseUrl}/register`,
             { username, email, password },

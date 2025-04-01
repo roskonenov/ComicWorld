@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 
 export default function useCreateResources() {
     const [loading, setLoading] = useState(false);
-    async function fetchResource(method, url, data, options = {}) {
+    const fetchResource = useCallback(async (method, url, data, options = {}) => {
         setLoading(true);
 
         options.method = method;
@@ -46,6 +46,6 @@ export default function useCreateResources() {
         setLoading(false);
 
         return result;
-    }
+    }, []);
     return { fetchResource, loading };
 }

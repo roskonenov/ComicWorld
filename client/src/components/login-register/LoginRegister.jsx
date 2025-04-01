@@ -46,7 +46,6 @@ export default function LoginRegister() {
                 userLoginHandler(authData);
                 toast.success('Success! Welcome a board');
                 navigate('/');
-
             })
             .catch(err => toast.error(err.message));
 

@@ -1,4 +1,4 @@
-import { createContext } from "react";
+import { createContext, useContext } from "react";
 
 export const ComicContext = createContext({
 
@@ -14,6 +14,11 @@ export const ComicContext = createContext({
         votes: 0
     },
     _id: "",
-    _createdOn: 0
+    _createdOn: 0,
+    buyComicHandler: () => null,
 
 });
+
+export function UseComicContext() {
+    return useContext(ComicContext);
+}

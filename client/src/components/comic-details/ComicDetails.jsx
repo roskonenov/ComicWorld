@@ -5,11 +5,13 @@ import { useParams } from 'react-router';
 import StarRating from './star-rating/StarRating';
 import CommentSection from './comment- section/CommentSection';
 import { useUserContext } from '../../contexts/UserContext';
+import { UseComicContext } from '../../contexts/ComicContext';
 
 export default function ComicDetails() {
     const { comicId } = useParams();
     const [loading, comic] = useComic(comicId);
     const { username } = useUserContext();
+    const {buyComicHandler} = UseComicContext();
 
     const isAdmin = username === 'Admin';
 
@@ -45,7 +47,9 @@ export default function ComicDetails() {
                                     <button className={styles.edit}>Edit</button>
                                 </>
                             }
-                            <button className={styles.buy}>Buy</button>
+                            <button 
+                            className={styles.buy}
+                            onClick={() => buyComicHandler(comic)}>Buy</button>
                         </div>
                     </div>
                 </div>
