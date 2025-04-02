@@ -1,17 +1,13 @@
 import { useSelectedComics } from '../../api/comicApi';
-import { useMyComicsId } from '../../api/MyComicsApi';
 import Spinner from '../spinner/Spinner';
 import ComicCard from './comic-card/ComicCard';
 import styles from './MyComics.module.css'
 
 export default function MyComics() {
 
-    const { comicsId, loading } = useMyComicsId();
+    const { loading, comics } = useSelectedComics();
 
-
-    const { pending, comics } = useSelectedComics(comicsId);
-
-    if (loading || pending) {
+    if (loading ) {
         return <Spinner />
     }
     return (

@@ -16,7 +16,7 @@ export const ComicContext = createContext({
     _id: "",
     _createdOn: 0,
     buyComicHandler: () => null,
-
+    readComicHandler: () => null,
 });
 
 export function UseComicContext() {

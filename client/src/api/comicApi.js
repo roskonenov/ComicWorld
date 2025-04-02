@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import useCreateResources from "../hooks/useCreateResources";
 import useGetResources from "../hooks/useGetResources";
 import { toast } from "react-toastify";
+import { useUserContext } from "../contexts/UserContext";
 
 const collectionsBaseUrl = 'http://localhost:3030/data/comicsInfo';
 const jsonStoreBaseUrl = 'http://localhost:3030/jsonstore/comics-rating';
@@ -17,14 +18,15 @@ export function useComics() {
     return [loading, comics];
 }
 
-export function useSelectedComics(comicsId) {
-
+export function useSelectedComics() {
+    
+    const {myComicsId} = useUserContext();
     const [comics, setComics] = useState([]);
     const { fetchResource, loading, } = useGetResources();
 
     useEffect(() => {
-        if (!comicsId || comicsId.length === 0) return;
-        const optionsData = `_id IN (${comicsId.map(id => `"${id}"`).join(', ')})`;
+        if (!myComicsId || myComicsId.length === 0) return;
+        const optionsData = `_id IN (${myComicsId.map(id => `"${id}"`).join(', ')})`;
 
         const options = new URLSearchParams({
             where: optionsData,
@@ -33,7 +35,7 @@ export function useSelectedComics(comicsId) {
         fetchResource(`${collectionsBaseUrl}?${options}`)
             .then(setComics)
             .catch(err => toast.error(err.message));
-    }, [comicsId, fetchResource]);
+    }, [myComicsId, fetchResource]);
     return { loading, comics };
 }
 

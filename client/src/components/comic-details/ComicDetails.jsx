@@ -11,7 +11,8 @@ export default function ComicDetails() {
     const { comicId } = useParams();
     const [loading, comic] = useComic(comicId);
     const { username } = useUserContext();
-    const {buyComicHandler} = UseComicContext();
+    const { buyComicHandler, readComicHandler } = UseComicContext();
+    const {myComicsId} = useUserContext();
 
     const isAdmin = username === 'Admin';
 
@@ -47,9 +48,15 @@ export default function ComicDetails() {
                                     <button className={styles.edit}>Edit</button>
                                 </>
                             }
-                            <button 
-                            className={styles.buy}
-                            onClick={() => buyComicHandler(comic)}>Buy</button>
+                            <button
+                                className={styles.buy}
+                                onClick={myComicsId.includes(comic._id)
+                                    ? () => readComicHandler(comic)
+                                    : () => buyComicHandler(comic)}>
+                                {myComicsId.includes(comic._id)
+                                    ? 'Read'
+                                    : 'Buy now'}
+                            </button>
                         </div>
                     </div>
                 </div>

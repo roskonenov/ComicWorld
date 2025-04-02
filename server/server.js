@@ -1355,7 +1355,7 @@
                 slogan: "Second Cycle",
                 creators: "Scott Snyder (Author) , Rafael Albuquerque (Illustrator)",
                 info: "The Eisner Award-winning, critically acclaimed series continues into a second volume. The tale of Pearl Jones and Skinner Sweet, both new breeds of vampire, enters a new era filled with new enemies, new allies, and a new decade, the 1960s!",
-                currentPrice: "5.2",
+                currentPrice: "5.20",
                 oldPrice: "",
                 createdAt: "2024-05-01T07:22:00.358Z",
                 ratingId: "dc79c140-f0fe-4877-b751-3ca8a3aafc6a",
@@ -1615,7 +1615,7 @@
                 _createdOn: 1613551237412
             },
             {
-                _ownerId: "ц",
+                _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
                 coverUrl: "https://pixeldrain.com/api/file/Ga3kgU4T",
                 title: "A Game of Thrones The Graphic Novel",
                 slogan: "Volume 1",

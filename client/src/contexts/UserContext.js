@@ -7,6 +7,8 @@ export const UserContext = createContext({
     accessToken: '',
     userLoginHandler: () => null,
     userLogoutHandler: () => null,
+    myComicsId: [],
+    setMyComicsId: () => null,
 });
 
 export function useUserContext(){
