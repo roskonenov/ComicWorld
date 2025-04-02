@@ -1360,7 +1360,7 @@
                 createdAt: "2024-05-01T07:22:00.358Z",
                 ratingId: "dc79c140-f0fe-4877-b751-3ca8a3aafc6a",
                 _id: "dc79c140-f0fe-4877-b751-3ca8a3aafc6a",
-                _createdOn: 1613551275612
+                _createdOn: 1613551275612,
             },
             {
                 _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
@@ -1714,6 +1714,32 @@
                 "_createdOn": 1743355937321,
                 "_id": "3c04d5a7-d35a-4f50-aa10-03ebe487e314"
             }
+        ],
+        comicContent: [
+            {
+                "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
+                "comicId": "dc79c140-f0fe-4877-b751-3ca8a3aafc6a",
+                "_createdOn": 1743355937321,
+                "_id": "dc79c140-f0fe-4877-b751-3ca8a3aafc6a",
+                "comicContent": {
+                    "1": "https://pixeldrain.com/api/file/j1KQMzrU",
+                    "2": "https://pixeldrain.com/api/file/VJqpwQ3K",
+                    "3": "https://pixeldrain.com/api/file/HPRQzYKa",
+                    "4": "https://pixeldrain.com/api/file/FFytGv3z",
+                    "5": "https://pixeldrain.com/api/file/aAcqZQ24",
+                    "6": "https://pixeldrain.com/api/file/g2TWoj7V",
+                    "7": "https://pixeldrain.com/api/file/kRtCmgjN",
+                    "8": "https://pixeldrain.com/api/file/rWQ7fRhE",
+                    "9": "https://pixeldrain.com/api/file/tSPevQ8x",
+                    "10": "https://pixeldrain.com/api/file/AjnXwZio",
+                    "11": "https://pixeldrain.com/api/file/Vqo3Las2",
+                    "12": "https://pixeldrain.com/api/file/5TiaQ3No",
+                    "13": "https://pixeldrain.com/api/file/2HgoGumZ",
+                    "14": "https://pixeldrain.com/api/file/TNWEW5zn",
+                    "15": "https://pixeldrain.com/api/file/fRvPMfTC",
+                    "16": "https://pixeldrain.com/api/file/uxaZPYkB"
+                }
+            },
         ],
     };
     var rules$1 = {

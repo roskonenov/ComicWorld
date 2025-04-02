@@ -5,14 +5,14 @@ import { useNavigate, useParams } from 'react-router';
 import StarRating from './star-rating/StarRating';
 import CommentSection from './comment- section/CommentSection';
 import { useUserContext } from '../../contexts/UserContext';
-import { UseComicContext } from '../../contexts/ComicContext';
+import { useComicContext } from '../../contexts/ComicContext';
 import { toast } from 'react-toastify';
 
 export default function ComicDetails() {
     const { comicId } = useParams();
     const [loading, comic] = useComic(comicId);
     const { username } = useUserContext();
-    const { buyComicHandler, readComicHandler } = UseComicContext();
+    const { buyComicHandler, readComicHandler } = useComicContext();
     const {myComicsId} = useUserContext();
     const {remove} = useDeleteComic();
     const navigate = useNavigate();

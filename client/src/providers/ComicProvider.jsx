@@ -3,11 +3,13 @@ import { useCreateMyComics } from "../api/MyComicsApi";
 import { ComicContext } from "../contexts/ComicContext";
 import { useUserContext } from "../contexts/UserContext";
 import { toast } from "react-toastify";
+import usePersistedState from "../hooks/usePersistedState";
 
 export default function ComicPrivider({ children }) {
     const { accessToken, setMyComicsId } = useUserContext();
     const { create } = useCreateMyComics();
     const navigate = useNavigate();
+    const [comic, setComic] = usePersistedState('comic', {});
 
     async function buyComicHandler(comic) {
         if (!accessToken) {
@@ -25,11 +27,12 @@ export default function ComicPrivider({ children }) {
     }
 
     function readComicHandler(comic) {
-        return console.log('Reading comic ' + comic.title);
+        setComic(comic);
+        return navigate(`/read/${comic._id}`);
     }
 
     return (
-        <ComicContext.Provider value={{ buyComicHandler, readComicHandler }} >
+        <ComicContext.Provider value={{comic, buyComicHandler, readComicHandler }} >
             {children}
         </ComicContext.Provider>
     );

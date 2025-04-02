@@ -4,23 +4,29 @@ export default function Pagination({
     prevPage,
     currentPage,
     nextPage,
-    comicsData,
-    comicsPerPage,
+    itemsData,
+    itemsPerPage,
 }) {
     return (
-        < div className={styles['pagination']}>
-            <button
-                onClick={prevPage}
-                disabled={currentPage === 1}>
-                Prev
-            </button>
-            <span>Page {currentPage}</span>
-            <button
-                onClick={nextPage}
-                disabled={currentPage === Math.ceil(comicsData.length / comicsPerPage)}
-            >
-                Next
-            </button>
+        <div className='top'>
+            < div className={styles['pagination']}>
+                <button
+                    onClick={prevPage}
+                    disabled={currentPage === 1}>
+                    <a href="#top">
+                        Prev
+                    </a>
+                </button>
+                <span>Page {currentPage}</span>
+                <button
+                    onClick={nextPage}
+                    disabled={currentPage === Math.ceil(itemsData.length / itemsPerPage)}
+                >
+                    <a href="#top">
+                        Next
+                    </a>
+                </button>
+            </div>
         </div>
     );
 }

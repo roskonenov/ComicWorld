@@ -1,4 +1,4 @@
-import { UseComicContext } from "../../contexts/ComicContext";
+import { useComicContext } from "../../contexts/ComicContext";
 import { useUserContext } from "../../contexts/UserContext";
 import styles from "./ComicItem.module.css"
 import { Link } from "react-router";
@@ -7,7 +7,7 @@ export default function ComicItem({
     comic
 }) {
     const { myComicsId } = useUserContext();
-    const { buyComicHandler, readComicHandler } = UseComicContext();
+    const { buyComicHandler, readComicHandler } = useComicContext();
     return (
         <li className={styles['item-container']}>
             <div className={styles['main-container']}>

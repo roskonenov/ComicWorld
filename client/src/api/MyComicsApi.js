@@ -26,7 +26,7 @@ export function useMyComicsId(userId) {
                 }
             });
 
-    }, [userId, fetchResource]);
+    }, [userId]);
 
     return { comicsId, loading }
 }

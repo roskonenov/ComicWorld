@@ -6,6 +6,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
+    gap: 8vw;
     position: fixed;
     top: 0;
     z-index: 1000;

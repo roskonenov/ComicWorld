@@ -16,6 +16,7 @@ import MyComics from "./components/my-comics/MyComics"
 import ComicPrivider from "./providers/ComicProvider"
 import About from "./components/about/About"
 import Footer from "./components/footer/Footer"
+import ReadComic from "./components/read-comic/ReadComic"
 
 
 function App() {
@@ -26,7 +27,7 @@ function App() {
 
         <BackgroundVideo />
         <Header />
-        
+
         <ErrorBoundry>
 
           <Routes>
@@ -36,6 +37,7 @@ function App() {
             <Route element={<AuthGuard />}>
               <Route path="/logout" element={<Logout />} />
               <Route path="/my-comics" element={<MyComics />} />
+              <Route path="/read/:comicId" element={<ReadComic />} />
             </Route>
 
             <Route element={<GuestGuard />}>
@@ -47,10 +49,11 @@ function App() {
             <Route path="/catalog/:comicId" element={<ComicDetails />} />
           </Routes>
 
-          <Footer />
+
 
           <ToastContainer position='top-right' />
         </ErrorBoundry>
+        <Footer />
       </ComicPrivider>
     </UserProvider>
   )

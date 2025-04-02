@@ -3,7 +3,6 @@ import useCreateResources from "../hooks/useCreateResources";
 import useGetResources from "../hooks/useGetResources";
 import { toast } from "react-toastify";
 import { useUserContext } from "../contexts/UserContext";
-import { useNavigate } from "react-router";
 
 const collectionsBaseUrl = 'http://localhost:3030/data/comicsInfo';
 const jsonStoreBaseUrl = 'http://localhost:3030/jsonstore/comics-rating';
@@ -20,8 +19,8 @@ export function useComics() {
 }
 
 export function useSelectedComics() {
-    
-    const {myComicsId} = useUserContext();
+
+    const { myComicsId } = useUserContext();
     const [comics, setComics] = useState([]);
     const { fetchResource, loading, } = useGetResources();
 
@@ -67,16 +66,16 @@ export function useLatestComics(count) {
     return [loading, comics];
 }
 
-export function useDeleteComic(){
+export function useDeleteComic() {
     const { fetchResource, loading } = useCreateResources();
 
     async function remove(comicId) {
-        
+
         const result = await fetchResource('DELETE', `${collectionsBaseUrl}/${comicId}`);
-        
+
         return result
     }
-    return {remove, loading};
+    return { remove, loading };
 }
 
 export function useComicRating(ratingId) {
@@ -103,4 +102,25 @@ export function usePostComicRating() {
         return result;
     }
     return { postRating };
+}
+
+export function useComicContent(comicId) {
+    const { fetchResource, loading } = useGetResources();
+        const [content, setContent] = useState([]);
+
+        useEffect(() => {
+            if(!comicId){
+                return;
+            }
+            const selectOptions = new URLSearchParams({
+                // where: `comicId="${comicId}"`,
+                select: 'comicContent',
+            });
+            
+            fetchResource(`http://localhost:3030/data/comicContent/${comicId}?${selectOptions}`)
+            .then(result => setContent(result.comicContent))
+            .catch(err => toast.error(err.message));
+
+        }, [fetchResource, comicId]);
+    return { content, loading };
 }

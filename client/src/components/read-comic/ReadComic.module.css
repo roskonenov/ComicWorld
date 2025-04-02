@@ -1,0 +1,39 @@
+.body {
+    padding-top: 80px;
+    
+}
+
+.section {
+    margin: 60px;
+    margin-top: 5px;
+    padding: 30px;
+    width: calc(100% - 120px);
+    height: fit-content;
+    background: #87e3ff8e;
+    border: 2px solid var(--magenta);
+    border-radius: 12px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    flex: 1 0 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 5vh;
+    justify-content: center;
+    align-items: center;
+    z-index: 0;
+    backdrop-filter: blur(10px);
+}
+
+.page-container {
+    width: 85%;
+    margin-top: 3vh;
+    overflow: hidden;
+    border-radius: 4px;
+    object-fit: fill;
+}
+
+.page-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: scale-down;
+}

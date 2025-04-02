@@ -19,7 +19,7 @@ export default function useCreateResources() {
             }
         }
 
-        if(authData.username === 'Admin'){
+        if(authData?.username === 'Admin'){
             options = {
                 ...options,
                 headers: {

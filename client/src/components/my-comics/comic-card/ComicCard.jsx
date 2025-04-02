@@ -1,11 +1,11 @@
-import { UseComicContext } from '../../../contexts/ComicContext';
+import { useComicContext } from '../../../contexts/ComicContext';
 import styles from './ComicCard.module.css'
 import { Link } from 'react-router'
 
 export default function ComicCard({
     comic
 }) {
-    const {readComicHandler} = UseComicContext();
+    const {readComicHandler} = useComicContext();
     return (
         <article className={styles['comic-card']}>
             <div className={styles['comic-cover']}>

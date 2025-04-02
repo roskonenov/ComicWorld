@@ -82,8 +82,8 @@ export default function ComicsList() {
                 prevPage={prevPage}
                 currentPage={currentPage}
                 nextPage={nextPage}
-                comicsData={filteredComics}
-                comicsPerPage={comicsPerPage}
+                itemsData={filteredComics}
+                itemsPerPage={comicsPerPage}
             />
         </div>
     );

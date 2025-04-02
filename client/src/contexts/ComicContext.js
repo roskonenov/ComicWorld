@@ -19,6 +19,6 @@ export const ComicContext = createContext({
     readComicHandler: () => null,
 });
 
-export function UseComicContext() {
+export function useComicContext() {
     return useContext(ComicContext);
 }
