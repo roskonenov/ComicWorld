@@ -14,6 +14,8 @@ import { Route, Routes } from "react-router"
 import { ToastContainer } from 'react-toastify';
 import MyComics from "./components/my-comics/MyComics"
 import ComicPrivider from "./providers/ComicProvider"
+import About from "./components/about/About"
+import Footer from "./components/footer/Footer"
 
 
 function App() {
@@ -21,22 +23,32 @@ function App() {
   return (
     <UserProvider >
       <ComicPrivider>
+
         <BackgroundVideo />
         <Header />
+        
         <ErrorBoundry>
+
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/catalog" element={<ComicsList />} />
+
             <Route element={<AuthGuard />}>
               <Route path="/logout" element={<Logout />} />
               <Route path="/my-comics" element={<MyComics />} />
             </Route>
+
             <Route element={<GuestGuard />}>
               <Route path="/login" element={<LoginRegister />} />
               <Route path="/register" element={<LoginRegister />} />
             </Route>
+
+            <Route path="/about" element={<About />} />
             <Route path="/catalog/:comicId" element={<ComicDetails />} />
           </Routes>
+
+          <Footer />
+
           <ToastContainer position='top-right' />
         </ErrorBoundry>
       </ComicPrivider>

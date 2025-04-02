@@ -16,7 +16,7 @@ export default function MyComics() {
             <section className={styles.section}>
                 {comics.length === 0
                     ? <h3 className={styles['no-comics']}>You don&apos;t own any comics yet.</h3>
-                    : comics.map(comic => <ComicCard key={comic._id} {...comic}/>)}
+                    : comics.map(comic => <ComicCard key={comic._id} comic={comic}/>)}
             </section>
         </div>
     );
