@@ -11,7 +11,7 @@ export default function Navigation() {
         { name: 'Login', path: '/login', auth: false },
         { name: 'Register', path: '/register', auth: false },
         { name: 'Logout', path: '/logout', auth: true },
-        { name: 'Contacts', path: '/contacts' },
+        // { name: 'Contacts', path: '/contacts' },
         { name: 'About', path: '/about' },
     ];
 

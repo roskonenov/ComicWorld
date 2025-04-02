@@ -1,11 +1,12 @@
-import { useComic } from '../../api/comicApi';
+import { useComic, useDeleteComic } from '../../api/comicApi';
 import Spinner from '../spinner/Spinner';
 import styles from './ComicDetails.module.css';
-import { useParams } from 'react-router';
+import { useNavigate, useParams } from 'react-router';
 import StarRating from './star-rating/StarRating';
 import CommentSection from './comment- section/CommentSection';
 import { useUserContext } from '../../contexts/UserContext';
 import { UseComicContext } from '../../contexts/ComicContext';
+import { toast } from 'react-toastify';
 
 export default function ComicDetails() {
     const { comicId } = useParams();
@@ -13,6 +14,20 @@ export default function ComicDetails() {
     const { username } = useUserContext();
     const { buyComicHandler, readComicHandler } = UseComicContext();
     const {myComicsId} = useUserContext();
+    const {remove} = useDeleteComic();
+    const navigate = useNavigate();
+
+    async function deleteComicHandler(comicId) {
+            const isConfirmed = confirm('Are you sure you want to delete this comic?');
+            if (!isConfirmed) return;
+    
+            await remove(comicId)
+                .then(() => {
+                    toast.success("The comic has been deleted!");
+                    navigate('/catalog');
+                })
+                .catch(err => toast.error(err.message));
+        }
 
     const isAdmin = username === 'Admin';
 
@@ -44,8 +59,12 @@ export default function ComicDetails() {
                         <div className={styles.buttons}>
                             {isAdmin &&
                                 <>
-                                    <button className={styles.delete}>Delete</button>
-                                    <button className={styles.edit}>Edit</button>
+                                    <button 
+                                    className={styles.delete}
+                                    onClick={() => deleteComicHandler(comic._id)}>
+                                        Delete
+                                    </button>
+                                    {/* <button className={styles.edit}>Edit</button> */}
                                 </>
                             }
                             <button

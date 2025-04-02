@@ -19,6 +19,16 @@ export default function useCreateResources() {
             }
         }
 
+        if(authData.username === 'Admin'){
+            options = {
+                ...options,
+                headers: {
+                    'X-Admin': 'admin',
+                    ...options.headers,
+                },
+            }
+        }
+
         if (data) {
             options = {
                 ...options,

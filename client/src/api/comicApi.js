@@ -3,6 +3,7 @@ import useCreateResources from "../hooks/useCreateResources";
 import useGetResources from "../hooks/useGetResources";
 import { toast } from "react-toastify";
 import { useUserContext } from "../contexts/UserContext";
+import { useNavigate } from "react-router";
 
 const collectionsBaseUrl = 'http://localhost:3030/data/comicsInfo';
 const jsonStoreBaseUrl = 'http://localhost:3030/jsonstore/comics-rating';
@@ -64,6 +65,18 @@ export function useLatestComics(count) {
     }, [count]);
 
     return [loading, comics];
+}
+
+export function useDeleteComic(){
+    const { fetchResource, loading } = useCreateResources();
+
+    async function remove(comicId) {
+        
+        const result = await fetchResource('DELETE', `${collectionsBaseUrl}/${comicId}`);
+        
+        return result
+    }
+    return {remove, loading};
 }
 
 export function useComicRating(ratingId) {

@@ -2,7 +2,6 @@
     position: fixed;
     bottom: 0;
     left: 0;
-    width: 100%;
     background: rgba(91, 52, 146, 0.985);
     width: 100vw;;
     color: var(--orange);
