@@ -2233,7 +2233,7 @@
                 "comicId": "09bb4abb-ad24-438c-b863-hjkgjhg55hggjk4",
                 "_createdOn": 1743355937321,
                 "_id": "09bb4abb-ad24-438c-b863-hjkgjhg55hggjk4",
-                "lastLinks": {
+                "comicContent": {
                     "1": "https://pixeldrain.com/api/file/bMDssZnR",
                     "2": "https://pixeldrain.com/api/file/tLAK8PpG",
                     "3": "https://pixeldrain.com/api/file/qWerV7z4",
@@ -2253,7 +2253,7 @@
                 "comicId": "09bb4abb-ad24-438c-b863-hoknbtcfegjk43",
                 "_createdOn": 1743355937321,
                 "_id": "09bb4abb-ad24-438c-b863-hoknbtcfegjk43",
-                "latestLinks": {
+                "comicContent": {
                     "1": "https://pixeldrain.com/api/file/SHiWW9eA",
                     "2": "https://pixeldrain.com/api/file/5d9QzPZe",
                     "3": "https://pixeldrain.com/api/file/fxsDs9dE",
@@ -2280,7 +2280,7 @@
                 "comicId": "09bb4abb-ad24-438c-b863-hoknbcfgedfghr",
                 "_createdOn": 1743355937321,
                 "_id": "09bb4abb-ad24-438c-b863-hoknbcfgedfghr",
-                "latestLinks": {
+                "comicContent": {
                     "1": "https://pixeldrain.com/api/file/z2wsAphJ",
                     "2": "https://pixeldrain.com/api/file/vHeK1kah",
                     "3": "https://pixeldrain.com/api/file/9seqjauN",
