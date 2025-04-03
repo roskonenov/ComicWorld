@@ -10,25 +10,26 @@ export default function UserProvider({ children }) {
     const {comicsId} = useMyComicsId(authData?._id);
 
     useEffect(()=> {
-      if(comicsId.length > 0 && myComicsId.length === 0) {
-        setMyComicsId(comicsId);
+      if(authData?._id) {
+        setMyComicsId(prevComics => {
+          const isSynced = comicsId.every(id => prevComics.includes(id));
+          return isSynced ? prevComics : comicsId;
+      });
       }
-    },[comicsId, setMyComicsId, myComicsId])
+    },[comicsId, setMyComicsId, authData]);
     
     function userLoginHandler(data) {
       setAuthData(data);
+      setMyComicsId([]);
     }
     
     function userLogoutHandler() {
       setAuthData({});
       setMyComicsId([]);
       setCurrentComic({});
+      localStorage.removeItem("myComics");
     }
-
-    useEffect(() => {
-      setMyComicsId(myComicsId);
-  }, [myComicsId, setMyComicsId]);
-
+    
     return (
         <UserContext.Provider value={{ ...authData, userLoginHandler, userLogoutHandler, myComicsId, setMyComicsId }}>
             {children}
