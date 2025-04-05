@@ -8,8 +8,6 @@ import { useParams } from 'react-router';
 export default function ReadComic() {
     const { comicId } = useParams();
     const { content, loading } = useComicContent(comicId);
-
-    console.log(content);
     
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 1;
