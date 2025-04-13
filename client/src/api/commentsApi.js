@@ -3,7 +3,7 @@ import useGetResources from "../hooks/useGetResources";
 import useCreateResources from "../hooks/useCreateResources";
 import { useUserContext } from "../contexts/UserContext";
 
-const BaseUrl = 'http://localhost:3030/data/comments';
+const BaseUrl = `${import.meta.env.VITE_APP_SERVER_URL}/data/comments`;
 
 export function useComments(comicId) {
     const [comments, setComments] = useState([]);

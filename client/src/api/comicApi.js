@@ -4,8 +4,8 @@ import useGetResources from "../hooks/useGetResources";
 import { toast } from "react-toastify";
 import { useUserContext } from "../contexts/UserContext";
 
-const collectionsBaseUrl = 'http://localhost:3030/data/comicsInfo';
-const jsonStoreBaseUrl = 'http://localhost:3030/jsonstore/comics-rating';
+const collectionsBaseUrl = `${import.meta.env.VITE_APP_SERVER_URL}/data/comicsInfo`;
+const jsonStoreBaseUrl = `${import.meta.env.VITE_APP_SERVER_URL}/jsonstore/comics-rating`;
 
 export function useComics() {
     const [comics, setComics] = useState([]);
@@ -117,7 +117,7 @@ export function useComicContent(comicId) {
                 select: 'comicContent',
             });
             
-            fetchResource(`http://localhost:3030/data/comicContent/${comicId}?${selectOptions}`)
+            fetchResource(`${import.meta.env.VITE_APP_SERVER_URL}/data/comicContent/${comicId}?${selectOptions}`)
             .then(result => setContent(result.comicContent))
             .catch(err => toast.error(err.message));
 

@@ -3,7 +3,7 @@ import useCreateResources from "../hooks/useCreateResources";
 import { toast } from "react-toastify";
 import useGetResources from "../hooks/useGetResources";
 
-const baseUrl = 'http://localhost:3030/data/myComics';
+const baseUrl = `${import.meta.env.VITE_APP_SERVER_URL}/data/myComics`;
 
 export function useMyComicsId(userId) {
     const { fetchResource, loading } = useGetResources();

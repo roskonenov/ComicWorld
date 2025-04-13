@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 import { useUserContext } from "../contexts/UserContext";
 import { toast } from "react-toastify";
 
-const baseUrl = 'http://localhost:3030/users';
+const baseUrl = `${import.meta.env.VITE_APP_SERVER_URL}/users`;
 
 export function useLogin() {
     const { fetchResource, loading } = useCreateResources();
