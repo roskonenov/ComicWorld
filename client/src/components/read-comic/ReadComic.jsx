@@ -1,14 +1,15 @@
 import { useState } from 'react';
 import { useComicContent } from '../../api/comicApi';
+import { useParams } from 'react-router';
+import { preload } from 'react-dom'
 import Pagination from '../comicsList/pagination/Pagination';
 import Spinner from '../spinner/Spinner';
 import styles from './ReadComic.module.css'
-import { useParams } from 'react-router';
 
 export default function ReadComic() {
     const { comicId } = useParams();
     const { content, loading } = useComicContent(comicId);
-    
+
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 1;
     const totalPages = Object.keys(content).length;
@@ -16,6 +17,9 @@ export default function ReadComic() {
     const nextPage = () => {
         if (currentPage < totalPages) {
             setCurrentPage(prev => prev + 1);
+            if (content[currentPage + 1]) {
+                preload(content[currentPage + 1], {as: 'image', fetchPriority: 'high'});
+            }
         }
     };
 
