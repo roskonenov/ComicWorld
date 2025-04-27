@@ -65,7 +65,7 @@ export function useLogout() {
 
         fetchResource(`${baseUrl}/logout`, options)
             .then(() => toast.success('You have been logged out'))
-            .finally(userLogoutHandler());
+            .finally(() => userLogoutHandler());
 
         return () => abortController.abort();
     }, [accessToken, userLogoutHandler]);
