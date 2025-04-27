@@ -64,13 +64,11 @@ export function useLogout() {
         };
 
         fetchResource(`${baseUrl}/logout`, options)
-            .then(() => {
-                userLogoutHandler();
-                toast.success('You have been logged out');
-            });
+            .then(() => toast.success('You have been logged out'))
+            .finally(userLogoutHandler());
 
         return () => abortController.abort();
     }, [accessToken, userLogoutHandler]);
-    
+
     return { isLogout: !!accessToken, loading };
 }
