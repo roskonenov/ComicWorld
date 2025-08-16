@@ -44,6 +44,56 @@
 
 .list {
     display: flex;
-    flex-wrap: wrap;
-    row-gap: 22vh;
+    flex-wrap: nowrap;
+    gap: 2rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    transition: transform 0.5s cubic-bezier(0.4, 0.2, 0.2, 1);
+    will-change: transform;
+}
+
+.carousel-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.carousel-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  width: 50px;
+  height: 50px;
+  max-width: 8vw;
+  cursor: pointer;
+  border: 2px solid #307fff;
+  background-color: #2bb6d5;
+  color: #fd8750;
+  border-radius: 50px;
+  text-shadow: #421906 1.3px 1.2px 1px;
+  margin: 5px;
+  box-shadow: 0 5px 20px 3px rgba(0, 0, 0, 0.6);
+  font-size: 1.2vw;
+}
+
+.carousel-btn:hover {
+    text-shadow: 0 0 10px var(--yelow), 0 0 20px var(--yelow), 0 0 30px var(--yelow);
+}
+
+.carousel-btn:active {
+  transition: all 0.1s;
+  color: var(--magenta);
+  text-shadow: 0 0 10px var(--yelow), 0 0 20px var(--yelow), 0 0 30px var(--yelow);
+  box-shadow: none;
+}
+
+.list {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 2rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
