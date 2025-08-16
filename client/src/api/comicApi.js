@@ -57,7 +57,7 @@ export function useLatestComics(count) {
     useEffect(() => {
         const searchParams = new URLSearchParams({
             sortBy: '_createdOn desc',
-            pageSize: `${count}`,
+            // pageSize: `${count}`,
         });
         fetchResource(`${collectionsBaseUrl}?${searchParams.toString()}`)
             .then(setComics);
