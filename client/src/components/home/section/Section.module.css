@@ -38,7 +38,7 @@
 }
 
 .list-container {
-    flex: 0 1 calc(70% - 8px);
+    flex: 1 0 calc(70% - 8px);
     flex-wrap: wrap;
 }
 
@@ -53,7 +53,26 @@
     will-change: transform;
 }
 
+.carousel-window {
+    position:absolute;
+    top: -40px;
+    right: 60px;
+    padding: 30px 18px;
+    padding-bottom: 350px;
+    height: 750px;
+    width: calc(12vw * 4 + 2.2rem * 4);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+.fillment {
+    min-width: calc(230px * 4 + 2.2rem * 4);
+    height: 17vw;
+}
+
 .carousel-controls {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
