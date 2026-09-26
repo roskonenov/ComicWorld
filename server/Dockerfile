@@ -1,4 +1,4 @@
-FROM node:22
+FROM node:26-alpine3.23
 
 ENV PORT=8080
 
